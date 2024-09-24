@@ -1,0 +1,99 @@
+/* Estilos generales */
+:root{
+    --color-fondo: linear-gradient(to right,rgba(48, 6, 65, 0.813),rgb(5, 3, 48));
+    --color-background:rgb(98, 2, 188);
+    --text-color:rgb(0, 0, 0);
+    --main-text-color:white;
+    
+    
+}
+body, html {
+    /* background-image: url(Assets/wp2915668.jpg)no-repeat center center/cover;**/ 
+    background: var(--color-fondo);
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Estilo de la sección principal */
+.hero {
+    min-height: 100vh; /* Asegura que esta sección ocupe al menos la altura de la ventana */
+    padding: 60px 0; /* Espaciado interno */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+/* Estilo de las secciones */
+.section {
+    padding: 60px 0; /* Espaciado interno */
+    box-sizing: border-box;
+}
+
+/* Estilo de contenedor */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilo de la cuadrícula */
+.grid {
+    display: grid;
+    gap: 20px;
+}
+
+/* Estilo de las tarjetas */
+.card {
+    color: #000;
+    background: #c77cf9;
+    background: var(--color-fondo);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding-top: 10px;
+}
+
+h1, h2, h3 {
+    color: var(--main-text-color);
+    margin: 0 0 10px 0;
+}
+
+p {
+    color: var(--main-text-color);
+    margin: 0 0 15px 0;
+}
+
+/* Estilo del botón */
+.btn {
+    background-color: var(--button-color);
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+
+.Naruto{
+    align-items: center;
+    padding: auto;
+    flex: auto;
+    width: 2px;
+    height: 2px;
+}
+.footer-container {
+    display: grid;
+    place-items: center;
+    height: 100vh;       
+    margin: 0;           
+}
+.footer{
+    padding: 15px;
+    color: var(--main-text-color);
+    background-color: #000000; 
+}
