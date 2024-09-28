@@ -11,6 +11,15 @@
     <title>AnimeMas</title>
 </head>
 <body>
+    <header class="header_botons">
+    <a href="{{route('login')}}">
+        <button><h2>inciar sesion</h2></button>
+        
+    </a>
+    <a href="{{route('sign')}}">
+        <button><h2>crear cuenta</h2></button>
+    </a>
+    </header>
     <!-- Sección principal -->
     <div class="section hero" style="background-color: var(--bg-color);">
         <div class="container">
