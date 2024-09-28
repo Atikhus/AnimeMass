@@ -1,18 +1,72 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 /* Estilos generales */
 :root{
     --color-fondo: linear-gradient(to right,rgba(48, 6, 65, 0.708),rgb(5, 3, 48));
     --color-background:rgb(98, 2, 188);
     --text-color:rgb(0, 0, 0);
     --main-text-color:white;
+    --exotic-color: linear-gradient(
+        150deg,
+        rgba(212, 1, 198, 0.883),
+        #09F,
+        #00DDFF
+    );
     
     
 }
-.header_botons{
-    background-color:rgba(0, 0, 0, 0.539);
-    color: var(--text-color);
-    padding: 1%;
+.header_botons {
+    padding: 10px;
+    background-color: #00000066;
+    display: flex;         /* Usa Flexbox para alinear los elementos en fila */
+    gap: 10px;            /* Espaciado entre los botones */
+    justify-content: center; /* Opcional: centra los botones en el contenedor */
+    justify-content: flex-end;
+    gap: 10px;
 }
+
+header span {
+    display: flex;         /* Asegúrate de que el span se comporte como un contenedor flex */
+}
+
+button {
+    border: 0;
+    background-image: linear-gradient(
+        150deg,
+        rgba(212, 1, 198, 0.883),
+        #09F,
+        #00DDFF
+    );
+    border-radius: 8px;
+    color: #fff;
+    display: flex;         /* Permite flex en el contenido del botón */
+    font-size: 18px;
+    padding: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button h2 {
+    margin: 0;            /* Elimina el margen por defecto del h2 */
+}
+
+button span {
+    background-color: #111;
+    padding: 16px 24px;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+button:hover span {
+    background: none;
+}
+
+button:active {
+    transform: scale(0.9); /* Corrige el valor a 0.9 en lugar de 0,9 */
+}
+
 body, html {
+    font-family: "Roboto", sans-serif;
     /* background-image: url(Assets/wp2915668.jpg)no-repeat center center/cover;**/ 
     background: var(--color-fondo);
     margin: 0;
@@ -23,22 +77,29 @@ body, html {
 
 /* Estilo de la sección principal */
 .hero {
+    
     min-height: 100vh; /* Asegura que esta sección ocupe al menos la altura de la ventana */
     padding: 60px 0; /* Espaciado interno */
     display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
+    
 }
 
 /* Estilo de las secciones */
 .section {
+    
     padding: 60px 0; /* Espaciado interno */
     box-sizing: border-box;
 }
-
+.home{
+    display: grid;                 /* Habilita Grid */
+    place-items: center;          /* Centra ambos ejes (horizontal y vertical) */
+    text-align: center;           /* Alinea el texto al centro */
+    padding: 20px;                /* Espaciado interno opcional */
+    height: 100vh;                /* Ajusta la altura del contenedor (opcional) */
+}
 /* Estilo de contenedor */
 .container {
+    
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
@@ -54,7 +115,7 @@ body, html {
 .card {
     color: #000;
     background: #c77cf9;
-    background: var(--color-fondo);
+    background: var(--exotic-color);
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -98,7 +159,11 @@ p {
     margin: 0;           
 }
 .footer{
-    padding: 15px;
+    height: 500px;
+    
+    width: 15000vh;
+    justify-content: flex-start;
+    padding: 10px;
     color: var(--main-text-color);
     background-color: #000000; 
 }

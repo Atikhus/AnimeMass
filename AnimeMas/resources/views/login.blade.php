@@ -25,7 +25,7 @@
                 <a href="">¿olvidaste tu contraseña?</a>
                 <input class="btn" type="submit" value="iniciar" >
             </form>
-            <span>¿no tienes una cuenta? <a href="sign.html">registrate</a></span>
+            <span>¿no tienes una cuenta? <a href="sign">registrate</a></span>
         </div>
 
     </main>

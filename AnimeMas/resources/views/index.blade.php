@@ -11,21 +11,21 @@
     <title>AnimeMas</title>
 </head>
 <body>
-    <header class="header_botons">
+<header class="header_botons">
     <a href="{{route('login')}}">
-        <button><h2>inciar sesion</h2></button>
-        
+        <span><button><h2>Iniciar sesión</h2></button></span>
     </a>
     <a href="{{route('sign')}}">
-        <button><h2>crear cuenta</h2></button>
+        <span><button><h2>Crear cuenta</h2></button></span>
     </a>
-    </header>
+</header>
+
     <!-- Sección principal -->
     <div class="section hero" style="background-color: var(--bg-color);">
         <div class="container">
             <div class="grid" style="grid-template-columns: 1fr 1fr;">
                 <div>
-                    <img src="Assets/tumblr_mfjzykj7nh1ro8cnpo1_500.webp" alt="">
+                    <img src="../Assets/tumblr_mfjzykj7nh1ro8cnpo1_500.webp" alt="">
                     <h1>Descubre el mundo del manga</h1>
                     <p> sumergete tu mismo en atrapantes historias  y vibrantes ilustraciones del universo del manga</p>
                     <a href="#" class="btn">Explora ahora</a>
@@ -116,9 +116,9 @@
     <div class="footer">
         <!-- Contenido del footer -->
         <footer>
-            <p >informacion:</p>
-            <p >contacto: 3206717199</p>
-            <p >informacion:luis miguel moreno potes</p>
+            <p >Términos y Condiciones: </p>
+            <p >Política de Privacidad:</p>
+            <p >Ayuda/FAQ: </p>
             <p >informacion:tecnologia en sistemas</p>
         </footer>
     </div>
