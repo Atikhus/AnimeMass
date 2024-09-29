@@ -1,129 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="icon" href="Assets/4043233-anime-away-face-no-nobody-spirited_113254.png"> 
-    <link rel="icon" href="{{ asset('Assets/4043233-anime-away-face-no-nobody-spirited_113254.png')}}">
-    <title>AnimeMas</title>
+    <title>Anime mas</title>
+
+    <link rel="icon" href="Assets/logo.png" type="Assets/jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,300&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos-home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
+
 <body>
-<header class="header_botons">
-    <a href="{{route('login')}}">
-        <span><button><h2>Iniciar sesión</h2></button></span>
-    </a>
-    <a href="{{route('sign')}}">
-        <span><button><h2>Crear cuenta</h2></button></span>
-    </a>
-</header>
 
-    <!-- Sección principal -->
-    <div class="section hero" style="background-color: var(--bg-color);">
-        <div class="container">
-            <div class="grid" style="grid-template-columns: 1fr 1fr;">
-                <div>
-                    <img src="../Assets/tumblr_mfjzykj7nh1ro8cnpo1_500.webp" alt="">
-                    <h1>Descubre el mundo del manga</h1>
-                    <p> sumergete tu mismo en atrapantes historias  y vibrantes ilustraciones del universo del manga</p>
-                    <a href="#" class="btn">Explora ahora</a>
+    <header id="inicio">
+        <input type="checkbox" id="menu">
+        <label for="menu" class="hamburger">
+            <span class="barras">≡</span>
+            <span class="equis">x</span>
+        </label>
+        <section class="contenedor-nav">
+            <div class="logo">
+                <img src="Assets/logo.png" alt="logo">
+                <span>Anime mas</span>
+            </div>
+            <form class="search-form">
+                <input type="text" class="search-input" placeholder="Buscar aquí">
+                <button type="submit" class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Home</a></li>
+                    <li><a href="#descubre">Descrube</a></li>
+                    <li><a href="#categorias">Categorias</a></li>
+                    <li><a href="{{route('sign')}}">Registrate facil</a></li>
+                    <li><a href="{{route('login')}}">Iniciar Sesión</a></li>
+                </ul>
+            </nav>
+
+        </section>
+        </section>
+        <section  class="textos-header">
+            <h1>ANIME MAS</h1>
+            <p> En nuestra aplicación web, invitamos a todos los fanáticos del manga, tanto veteranos 
+                como nuevos, a sumergirse en nuestro extenso catálogo de los mejores títulos disponibles.
+                Aquí podrás explorar, descubrir nuevas aventuras y disfrutar de una experiencia de lectura única 
+                con historias que van desde los clásicos del manga hasta las últimas novedades.
+
+                ¡Navega ahora y encuentra el manga perfecto para ti!</p>
+            <a href="#conocer">Descrube mas ➟</a>
+        </section>
+    </header>
+    <section id="descubre" class="anime-section">
+        <h1>¡Descrube Mangas!</h1>
+        <p>¡Disfruta aquí de algunos de nuestros títulos más populares!</p>
+        <div class="anime-grid">
+            <div class="anime-card">
+                <img src="Assets/descrube1.webp" alt="Soul Eater">
+                <h2>Dungeon ni Hisomu Yandere</h2>
+                <p>Sub | Dob</p>
+            </div>
+            <div class="anime-card">
+                <img src="Assets/descubre2.webp" alt="BOCCHI THE ROCK!">
+                <h2>Uzaki-chan wa Asobitai</h2>
+                <p>Subtitulado</p>
+            </div>
+            <div class="anime-card">
+                <img src="Assets/descubre3.webp" alt="The Reincarnation Of The Strongest Exorcist In Another World">
+                <h2>El hijo menor del maestro de la espada</h2>
+                <p>Sub | Dob</p>
+            </div>
+            <div class="anime-card">
+                <img src="Assets/descubre4.webp" alt="Horimiya">
+                <h2>Academy genius swordsman</h2>
+                <p>Sub | Dob</p>
+            </div>
+            <div class="anime-card">
+                <img src="Assets/descubre5.webp" alt="Campfire Cooking in Another World with My Absurd Skills">
+                <h2>The New Gate</h2>
+                <p>Sub | Dob</p>
+            </div>
+        </div>
+    </section>
+    <section id="categorias" class="category-section">
+        <h1>¿Qué te gustaria leer hoy?</h1>
+        <div class="category-grid">
+            <div class="category-card">
+                <img src="Assets/shunen.webp" alt="Shonen">
+                <div class="category-overlay">
+                    <span>Shonen</span>
                 </div>
-                <div>
-                    <img src="/placeholder.svg" alt="Manga Hero">
+            </div>
+            <div class="category-card">
+                <img src="Assets/shojo.jpg" alt="Shojo">
+                <div class="category-overlay">
+                    <span>Shojo</span>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="Assets/seinen.jpg" alt="Seinen">
+                <div class="category-overlay">
+                    <span>Seinen</span>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="Assets/novelagrafica.jpg" alt="Novela Gráfica">
+                <div class="category-overlay">
+                    <span>Novela Gráfica</span>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="Assets/bl.jpg" alt="BL">
+                <div class="category-overlay">
+                    <span>BL</span>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="Assets/echi.jpg" alt="Ecchi">
+                <div class="category-overlay">
+                    <span>Ecchi</span>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="Assetsspokon.jpg" alt="Spokon">
+                <div class="category-overlay">
+                    <span>Spokon</span>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="Assets/superheroes.jpg" alt="Superhéroes">
+                <div class="category-overlay">
+                    <span>Superhéroes</span>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="Assets/yuri.jpg" alt="Yuri">
+                <div class="category-overlay">
+                    <span>Yuri</span>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="Assets/romcom.jpg" alt="Romcom">
+                <div class="category-overlay">
+                    <span>Romcom</span>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Sección Featured Manga -->
-    <div class="section" style="background-color: #3a0365;">
-        <div class="container">
-            <h2>Featured Manga</h2>
-            <div class="grid" style="grid-template-columns: repeat(4, 1fr);">
-                <!-- Tarjetas de Manga -->
-                <div class="card">
-                    <img src="/placeholder.svg" alt="Attack on Titan">
-                    <div class="card-body">
-                        <h3>Attack on Titan</h3>
-                        <p>En un mundo donde la humanidad vive asustada de las criaturas  gigantes humanoides conocidas como titanes... </p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img  class="Naruto" src="Assets/naruto_icon.png" alt="Naruto">
-                    <div class="card-body">
-                        <h3>Naruto</h3>
-                        <p> Sigue las aventuras de Naruto Uzumaki, un nunja joven entrenando </p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="/placeholder.svg" alt="One Piece">
-                    <div class="card-body">
-                        <h3>One Piece</h3>
-                        <p> Monkey D. Luffy se propone una jornada de busqueda del legendario tesoro </p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="/placeholder.svg" alt="My Hero Academia">
-                    <div class="card-body">
-                        <h3>My Hero Academia</h3>
-                        <p> En un mundo donded la gente desarrollo superpoderes, un joven chico sueña con convertirse en un heroe...</p>
-                    </div>
-                </div>
-            </div>
+    <section id="registro" class="valores">
+        <div class="section">
+            <h3>Sigue los siguientes pasos</h3>
+            <h1>Registraté facil </h1>
+            <p>
+                A continuacion te presentamos los pasos a seguir para que quedes registrador
+                a nuestra apliacacion web, donde podras disfrutar y tener a acceso a los mejores mangas.
+                Presta atención y no te pierda la oportunidad de registrate!!. 
+            </p>
+            <ul>
+                <li>Leo vel orci porta etiam sed neque etiam</li>
+                <li>Magna tempus suspendisse malesuada consequat</li>
+                <li>Est placerat sed in egestas erat aliquam nulla</li>
+                <li>Ipsum lorem dolor sed lectus vestibulum blandit</li>
+            </ul>
+    </section>
+
+    <footer class="footer">
+        <div class="social-icons">
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="mailto:email@example.com"><i class="fas fa-envelope"></i></a>
+
         </div>
-    </div>
+        <p>&copy; Untitled. All rights reserved.</p>
+    </footer>
 
-    <!-- Sección de Últimas Actualizaciones -->
-    <div class="section" style="background-color: var(--bg-color);">
-        <div class="container">
-            <h2>Ultimas actualizaciones</h2>
-            <div class="grid" style="grid-template-columns: repeat(3, 1fr);">
-                <!-- Tarjetas de Actualizaciones -->
-                <div class="card">
-                    <img src="/placeholder.svg" alt="Update 1">
-                    <div class="card-body">
-                        <h3>Nueva serie de mangas anunciados</h3>
-                        <p>The publishing company has just announced the launch of a brand-new manga series...</p>
-                        <a href="#" class="btn" style="background-color: transparent; color: var(--button-color); padding: 0;">Read More</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="/placeholder.svg" alt="Update 2">
-                    <div class="card-body">
-                        <h3> El premio al mejor artista de manga</h3>
-                        <p> el renovado artista de manga ha sido reconocido...</p>
-                        <a href="#" class="btn" style="background-color: transparent; color: var(--button-color); padding: 0;">Read More</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="/placeholder.svg" alt="Update 3">
-                    <div class="card-body">
-                        <h3> Adactacion del manga anunciado!!!</h3>
-                        <p>Los fanáticos de la querida serie de novelas están encantados de saber que una adaptación al manga...</p>
-                        <a href="#" class="btn" style="background-color: transparent; color: var(--button-color); padding: 0;">Read More</a>
-                    </div>
-
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-
-<!-- Contenedor del footer -->
-<div class="footer-container">
-    <div class="footer">
-        <!-- Contenido del footer -->
-        <footer>
-            <p >Términos y Condiciones: </p>
-            <p >Política de Privacidad:</p>
-            <p >Ayuda/FAQ: </p>
-            <p >informacion:tecnologia en sistemas</p>
-        </footer>
-    </div>
-</div>
-
-    
 </body>
+
 </html>
