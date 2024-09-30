@@ -11,8 +11,12 @@
     box-sizing: border-box;
 }
 body{
+    background-image: url(../Assets/animesher.com_stars-gif-aesthetic-anime-1916094.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     height: 100vh;
-    background: var(--color-fondo);
+    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,8 +24,7 @@ body{
 h1,h2,p{
     color: white;
 }
-.container{
-    background-image: url(../Assets/wp2915668.jpg);
+.container {
     display: flex;
     width: 70%;
     max-width: 600px;
@@ -31,9 +34,12 @@ h1,h2,p{
     gap: 10px;
     color: var(--color-texto-poster);
     border-radius: 10px;
-    background-color: white;
-    
+
+    background-color: rgba(255, 255, 255, 0.3); /* Fondo translúcido */
+    backdrop-filter: blur(10px); /* Desenfoque del fondo */
+    -webkit-backdrop-filter: blur(10px); /* Para compatibilidad con Safari */
 }
+
 
 .container-poster{
     display: flex;

@@ -1,5 +1,5 @@
 :root{
-    --color-fondo: linear-gradient(to right,rgba(48, 6, 65, 0.708),rgb(5, 3, 48));
+    --color-fondo: linear-gradient(to right,rgba(5, 72, 130, 0.708),rgb(5, 3, 48));
     --color-texto-poster:rgb(0, 0, 0);
     --color-texto-formulario:rgb(59, 59, 59);
     --color-btn: linear-gradient(to right,rgba(2, 53, 95, 0.842),rgba(0, 0, 0));
@@ -13,16 +13,19 @@
 }
 body{
     height: 100vh;
-    background: var(--color-fondo);
+    background-image: url(../Assets/galaxy.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 h1,h2,p{
-color: var(--color-login-text);
+    color: var(--color-login-text);
 }
 .container{
-    background-image: url(../Assets/wp2915668.jpg);
+    background-color: var(--color-fondo);
     display: flex;
     width: 70%;
     max-width: 600px;
@@ -32,7 +35,10 @@ color: var(--color-login-text);
     gap: 10px;
     color: var(--color-texto-poster);
     border-radius: 10px;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.3); /* Fondo translúcido */
+    backdrop-filter: blur(10px); /* Desenfoque del fondo */
+    -webkit-backdrop-filter: blur(10px); /* Para compatibilidad con Safari */
+    
     
 }
 

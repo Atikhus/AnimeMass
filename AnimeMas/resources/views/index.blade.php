@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anime mas</title>
+    <title>AnimeMas</title>
 
     <link rel="icon" href="Assets/logo.png" type="Assets/jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,7 +27,7 @@
         <section class="contenedor-nav">
             <div class="logo">
                 <img src="Assets/logo.png" alt="logo">
-                <span>Anime mas</span>
+                <span>AnimeMas</span>
             </div>
             <form class="search-form">
                 <input type="text" class="search-input" placeholder="Buscar aquí">
@@ -48,7 +48,7 @@
         </section>
         </section>
         <section  class="textos-header">
-            <h1>ANIME MAS</h1>
+            <h1>ANIMEMAS</h1>
             <p> En nuestra aplicación web, invitamos a todos los fanáticos del manga, tanto veteranos 
                 como nuevos, a sumergirse en nuestro extenso catálogo de los mejores títulos disponibles.
                 Aquí podrás explorar, descubrir nuevas aventuras y disfrutar de una experiencia de lectura única 

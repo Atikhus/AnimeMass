@@ -7,8 +7,6 @@ abstract class Controller
 {
     //
 
-
-
 }
 
 
