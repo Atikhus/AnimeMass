@@ -16,15 +16,25 @@
 
         <div class="container-formulario">
             <h2>login</h2>
-            <form action="POST" method="{{ route('login.process') }}"><!--este lleva toda la info recogida al servidor-->
-                <input type="email" name="email" placeholder="example@gmail.com" required pattern="^([\w]*[\w\.]*(?!\.)@gmail.com)"> <!--el patern es para obligar a que el formato sea @gmail.com-->
-                <input type="password" name="contraseña" placeholder="contraseña" required>
-                <label for="">
-                    <input type="checkbox" name="recordar">recordarme
-                </label>
-                <a href="sesion_iniciada">¿olvidaste tu contraseña?</a>
-                <input class="btn" type="submit" value="iniciar" >
-            </form>
+            <form method="POST" action="{{ route('login.process') }}">
+    @csrf <!-- Protección CSRF -->
+    <div>
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" name="email" placeholder="example@gmail.com" required pattern="^([\w]*[\w\.]*(?!\.)@gmail.com)">
+    </div>
+    <div>
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" placeholder="Contraseña" required>
+    </div>
+    <div>
+        <label for="recordar">
+            <input type="checkbox" id="recordar" name="recordar"> Recordarme
+        </label>
+        <a href="">¿Olvidaste tu contraseña?</a>
+    </div>
+    <input class="btn" type="submit" value="Iniciar">
+</form>
+
             <span>¿no tienes una cuenta? <a href="sign">registrate</a></span>
         </div>
 

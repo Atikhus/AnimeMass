@@ -16,13 +16,38 @@
 
         <div class="container-formulario">
             <h2>sign up</h2>
-            <form method="{{ route('sign.process') }}" action="POST">
-    @csrf <!-- Protección CSRF -->
-    <input type="text" name="name" placeholder="Nombre" required>
-    <input type="text" name="lastname" placeholder="Apellido" required>
-    <input type="email" name="email" placeholder="example@gmail.com" required pattern="^([\w]*[\w\.]*(?!\.)@gmail.com)">
-    <input type="password" name="password" placeholder="Contraseña" required>
-    <input type="password" name="password_confirmation" placeholder="Confirmar Contraseña" required> <!-- Este campo es necesario -->
+            <form method="POST" action="{{ route('sign.process') }}">
+    @csrf
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+    <div>
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" placeholder="Nombre" required>
+    </div>
+    <div>
+        <label for="lastname">Apellido:</label>
+        <input type="text" id="lastname" name="lastname" placeholder="Apellido" required>
+    </div>
+    <div>
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" name="email" placeholder="example@gmail.com" required pattern="^([\w]*[\w\.]*(?!\.)@gmail.com)">
+    </div>
+    <div>
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" placeholder="Contraseña" required>
+    </div>
+    <div>
+        <label for="password_confirmation">Confirmar Contraseña:</label>
+        <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Confirmar Contraseña" required>
+    </div>
     <input class="btn" type="submit" value="Registrar">
 </form>
 
