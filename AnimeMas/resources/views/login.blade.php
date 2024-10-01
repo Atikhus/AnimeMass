@@ -16,13 +16,13 @@
 
         <div class="container-formulario">
             <h2>login</h2>
-            <form action="" method=""><!--este lleva toda la info recogida al servidor-->
+            <form action="POST" method="{{ route('login.process') }}"><!--este lleva toda la info recogida al servidor-->
                 <input type="email" name="email" placeholder="example@gmail.com" required pattern="^([\w]*[\w\.]*(?!\.)@gmail.com)"> <!--el patern es para obligar a que el formato sea @gmail.com-->
                 <input type="password" name="contraseña" placeholder="contraseña" required>
                 <label for="">
                     <input type="checkbox" name="recordar">recordarme
                 </label>
-                <a href="">¿olvidaste tu contraseña?</a>
+                <a href="sesion_iniciada">¿olvidaste tu contraseña?</a>
                 <input class="btn" type="submit" value="iniciar" >
             </form>
             <span>¿no tienes una cuenta? <a href="sign">registrate</a></span>

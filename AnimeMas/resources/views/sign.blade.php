@@ -16,14 +16,18 @@
 
         <div class="container-formulario">
             <h2>sign up</h2>
-            <form action="{{route('sign.process')}}" method="POST"><!--este lleva toda la info recogida al servidor-->
-                <input type="text" name="nombre" placeholder="nombre" required> <!--el dato se guarda en la variable nombre, y el required obiga que el campo este lleno -->
-                <input type="text" name="lastname" placeholder="Apellido" required>
-                <input type="email" name="email" placeholder="example@gmail.com" required pattern="^([\w]*[\w\.]*(?!\.)@gmail.com)"> <!--el patern es para obligar a que el formato sea @gmail.com-->
-                <input type="password" name="contraseña" placeholder="contraseña" required>
-                <input class="btn" type="submit" value="Registrar" >
-                
-            </form>
+            <form method="{{ route('sign.process') }}" action="POST">
+    @csrf <!-- Protección CSRF -->
+    <input type="text" name="name" placeholder="Nombre" required>
+    <input type="text" name="lastname" placeholder="Apellido" required>
+    <input type="email" name="email" placeholder="example@gmail.com" required pattern="^([\w]*[\w\.]*(?!\.)@gmail.com)">
+    <input type="password" name="password" placeholder="Contraseña" required>
+    <input type="password" name="password_confirmation" placeholder="Confirmar Contraseña" required> <!-- Este campo es necesario -->
+    <input class="btn" type="submit" value="Registrar">
+</form>
+
+
+
         </div>
 
     </main>
