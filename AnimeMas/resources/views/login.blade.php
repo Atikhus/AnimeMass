@@ -14,11 +14,21 @@
             <p>unete a  nosotros</p>
         </div>
 
+        <!--formulario -->
         <div class="container-formulario">
             <h2>login</h2>
             <form method="POST" action="{{ route('login.process') }}">
     @csrf <!-- Protección CSRF -->
     <div>
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
         <label for="email">Correo Electrónico:</label>
         <input type="email" id="email" name="email" placeholder="example@gmail.com" required pattern="^([\w]*[\w\.]*(?!\.)@gmail.com)">
     </div>

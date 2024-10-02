@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-class ManejoEntradas extends Controller
+class manejoEntradas extends Controller
 {
     public function showLoginForm()
     {
@@ -28,8 +28,8 @@ class ManejoEntradas extends Controller
 
 
 
-    public function login(Request $request)
-{
+    public function login(Request $request){
+
          // Validación de credenciales
     $credentials = $request->validate([
         'email' => ['required', 'email'],
@@ -43,7 +43,7 @@ class ManejoEntradas extends Controller
     } else {
         // Fallo en la autenticación
         return back()->withErrors([
-            'email' => 'Las credenciales proporcionadas no coinciden con nuestros registros.',
+            'email' && 'password'=> 'Las credenciales proporcionadas no coinciden con nuestros registros.',
             
         ]);
     }
@@ -55,7 +55,7 @@ class ManejoEntradas extends Controller
              // Validar los datos
             $request->validate([
                 'name' => 'required|string|max:255',
-                'lastname' => 'required|string|max:255', // Asegúrate de validar lastname
+                'lastname' => 'required|string|max:255', 
                 'email' => 'required|string|email|max:255|unique:users',
                 'password' => 'required|string|min:8|confirmed',
             ]);
@@ -63,7 +63,7 @@ class ManejoEntradas extends Controller
             // Crea el usuario
             User::create([
                 'name' => $request->name,
-                'lastname' => $request->lastname, // Incluye lastname
+                'lastname' => $request->lastname, 
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
             ]);
