@@ -21,7 +21,7 @@ class ManejoEntradas extends Controller
     }
 
     public function showForm(){
-        return view('sesion_iniciada');
+        return view('control_panel');
     }
 
 
@@ -39,7 +39,7 @@ class ManejoEntradas extends Controller
     // Intento de autenticación
     if (Auth::attempt($credentials)) {
         // Autenticación exitosa
-        return view('sesion_iniciada'); 
+        return view('control_panel'); 
     } else {
         // Fallo en la autenticación
         return back()->withErrors([
@@ -69,7 +69,7 @@ class ManejoEntradas extends Controller
             ]);
     
     // Redirigir después del registro
-    return view('sesion_iniciada'); 
+    return view('control_panel'); 
         
     }
 }

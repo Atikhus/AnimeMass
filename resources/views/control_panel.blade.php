@@ -10,7 +10,7 @@
 <body>
     <header>
         <div class="header-content">
-            <img src="img/logo.png" alt="Logo de Manga Mas" class="logo">
+            <img src="Assets/logo.png" alt="Logo de Manga Mas" class="logo">
             <h1>Manga Mas</h1>
         </div>
     </header>
@@ -43,6 +43,8 @@
             </section>
         </main>
     </div>
-    <script src="ls/avaScrip.js"></script>
+    <script src="{{ asset('js/avaScrip.js') }}"></script>
+
+    
 </body>
 </html>

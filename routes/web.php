@@ -22,8 +22,8 @@ Route::post('/sign', [ManejoEntradas::class, 'sign'])->name('sign.process');
 
 
 
-Route::get('/sesion_iniciada', [ManejoEntradas::class, 'showForm']);
-Route::post('/sesion_iniciada', [ManejoEntradas::class, 'sesion_iniciada'])->name('sesion_iniciada');
+Route::get('/control_panel', [ManejoEntradas::class, 'showForm']);
+Route::post('/control_panel', [ManejoEntradas::class, 'control_panel.blade'])->name('control_panel');
 
 
 // solicitudes al servidor
