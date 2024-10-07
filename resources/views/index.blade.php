@@ -38,16 +38,28 @@
             <nav>
                 <ul>
                     <li><a href="#inicio">Home</a></li>
-                    <li><a href="#descubre">Descrube</a></li>
-                    <li><a href="#categorias">Categorias</a></li>
-                    <li><a href="{{route('sign')}}">Registrate facil</a></li>
-                    <li><a href="{{route('login')}}">Iniciar Sesión</a></li>
+                    <li><a href="#descubre">Descubre</a></li>
+                    <li><a href="#categorias">Categorías</a></li>
+                    @auth
+                        <!-- Si el usuario ha iniciado sesión, no mostramos los botones de inicio de sesión -->
+                    @else
+                        <li><a href="{{ route('sign') }}">Registrate fácil</a></li>
+                        <li><a href="{{ route('login') }}">Iniciar Sesión</a></li>
+                    @endauth
                 </ul>
             </nav>
-
+            <div class="sesionActiva">
+                @auth
+                    <!-- Mostrar el logo y el mensaje de bienvenida si el usuario ha iniciado sesión -->
+                    <img src="{{ asset('Assets/dandy.ico') }}" alt="Logo de usuario autenticado">
+                    <span>Bienvenido, {{ Auth::user()->name }}</span>
+                @else
+                    <!-- Mostrar espacio vacío si no ha iniciado sesión -->
+                    <img src="{{ asset('Assets/dead.ico') }}" alt="sesion sin inciar">
+                @endauth
+            </div>
         </section>
-        </section>
-        <section  class="textos-header">
+        <section class="textos-header">
             <h1>ANIMEMAS</h1>
             <p> En nuestra aplicación web, invitamos a todos los fanáticos del manga, tanto veteranos 
                 como nuevos, a sumergirse en nuestro extenso catálogo de los mejores títulos disponibles.
@@ -55,11 +67,11 @@
                 con historias que van desde los clásicos del manga hasta las últimas novedades.
 
                 ¡Navega ahora y encuentra el manga perfecto para ti!</p>
-            <a href="#conocer">Descrube mas ➟</a>
+            <a href="#conocer">Descubre más ➟</a>
         </section>
     </header>
     <section id="descubre" class="anime-section">
-        <h1>¡Descrube Mangas!</h1>
+        <h1>¡Descubre Mangas!</h1>
         <p>¡Disfruta aquí de algunos de nuestros títulos más populares!</p>
         <div class="anime-grid">
             <div class="anime-card">
@@ -90,7 +102,7 @@
         </div>
     </section>
     <section id="categorias" class="category-section">
-        <h1>¿Qué te gustaria leer hoy?</h1>
+        <h1>¿Qué te gustaría leer hoy?</h1>
         <div class="category-grid">
             <div class="category-card">
                 <img src="Assets/shunen.webp" alt="Shonen">
@@ -158,11 +170,11 @@
     <section id="registro" class="valores">
         <div class="section">
             <h3>Sigue los siguientes pasos</h3>
-            <h1>Registraté facil </h1>
+            <h1>Regístrate fácil </h1>
             <p>
-                A continuacion te presentamos los pasos a seguir para que quedes registrador
-                a nuestra apliacacion web, donde podras disfrutar y tener a acceso a los mejores mangas.
-                Presta atención y no te pierda la oportunidad de registrate!!. 
+                A continuación, te presentamos los pasos a seguir para que quedes registrado
+                en nuestra aplicación web, donde podrás disfrutar y tener acceso a los mejores mangas.
+                Presta atención y no te pierdas la oportunidad de registrarte!!. 
             </p>
             <ul>
                 <li>Leo vel orci porta etiam sed neque etiam</li>
@@ -177,10 +189,9 @@
             <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
             <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
             <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-            <a href="mailto:email@example.com"><i class="fas fa-envelope"></i></a>
-
+            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
         </div>
-        <p>&copy; Untitled. All rights reserved.</p>
+        <p>&copy; 2024 AnimeMas. Todos los derechos reservados.</p>
     </footer>
 
 </body>

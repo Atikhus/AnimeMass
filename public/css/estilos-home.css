@@ -14,7 +14,12 @@
 html {
     scroll-behavior: smooth;
 }
-
+.Bienvenido{
+    color: white;
+}
+span{
+    color: white;
+}
 
 body{
     font-family: "Roboto",sans-serif;

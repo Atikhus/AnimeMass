@@ -39,7 +39,7 @@ class ManejoEntradas extends Controller
     // Intento de autenticación
     if (Auth::attempt($credentials)) {
         // Autenticación exitosa
-        return view('control_panel'); 
+        return view('index'); 
     } else {
         // Fallo en la autenticación
         return back()->withErrors([
@@ -69,7 +69,7 @@ class ManejoEntradas extends Controller
             ]);
     
     // Redirigir después del registro
-    return view('control_panel'); 
+    return view('index'); 
         
     }
 }
