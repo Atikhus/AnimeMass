@@ -1,0 +1,91 @@
+:root{
+    --color-fondo: linear-gradient(to right,rgba(0, 140, 158),rgb(6, 5, 20));
+}
+*{
+}
+body{
+    background: url(../Assets/animesher.com_stars-gif-aesthetic-anime-1916094.gif) no-repeat center center/cover;
+
+}
+/* Estilo general para el contenedor */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para los encabezados */
+h1 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #666;
+    margin: 20px 0 10px;
+}
+
+/* Estilo para el formulario de búsqueda */
+form {
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 70%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para la lista de mangas */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px 0;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    transition: box-shadow 0.3s ease;
+}
+
+li:hover {
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para las imágenes de los mangas */
+img {
+    max-width: 100px; /* Ajusta el tamaño de las imágenes */
+    margin-right: 15px;
+    border-radius: 5px;
+}
+
+/* Estilo para los mensajes de error */
+.error {
+    color: red;
+    margin-top: 10px;
+}

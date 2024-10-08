@@ -3,7 +3,7 @@
     --color-fuente:rgb(245, 247, 235);
     --tamano-titulos:3.5rem;
 }
- 
+
 /* reset html */
 *{
     margin: 0;
@@ -14,9 +14,7 @@
 html {
     scroll-behavior: smooth;
 }
-.Bienvenido{
-    color: white;
-}
+
 span{
     color: white;
 }

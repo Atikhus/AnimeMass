@@ -44,7 +44,5 @@
         </main>
     </div>
     <script src="{{ asset('js/avaScrip.js') }}"></script>
-
-    
 </body>
 </html>
