@@ -14,7 +14,9 @@ body{
     padding: 20px;
     text-align: center;
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    background-color: rgba(255, 255, 255, 0.3); /* Fondo translúcido */
+    backdrop-filter: blur(10px); /* Desenfoque del fondo */
+    -webkit-backdrop-filter: blur(10px); /* Para compatibilidad con Safari */
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }

@@ -32,3 +32,7 @@ Route::get('/komga-series', [KomgaController::class, 'getSeries']);
 // Ruta para mostrar la vista de sesión iniciada
 Route::get('/sesion_iniciada', [ManejoEntradas::class, 'mostrarSesionIniciada'])->name('sesion_iniciada')->middleware('auth');
 Route::post('/sesion_iniciada', [MangaController::class, 'buscarManga'])->name('buscar.manga');
+
+// Ruta para mostrar detalles del manga
+Route::get('/manga/{id}', [MangaController::class, 'detallesManga'])->name('manga.detalles');
+

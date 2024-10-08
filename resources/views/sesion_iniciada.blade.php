@@ -37,7 +37,11 @@
                         <img src="ruta/imagen/default.jpg" alt="Portada no disponible" class="img-fluid">
                     @endif
 
-                    <h3>{{ $manga->attributes->title->en ?? 'Título no disponible' }}</h3>
+                    <h3>
+                        <a href="{{ route('manga.detalles', ['id' => $manga->id]) }}">
+                            {{ $manga->attributes->title->en ?? 'Título no disponible' }}
+                        </a>
+                    </h3>
                 </div>
             @endforeach
         </div>
