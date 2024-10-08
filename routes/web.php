@@ -4,7 +4,7 @@ use App\Http\Controllers\KomgaController;
 use App\Http\Controllers\ManejoEntradas;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MangaController;
-
+use App\Http\Controllers\MangaDexProxyController;
 // Página de inicio
 Route::get('/', function () {
     return view('index');
@@ -36,3 +36,5 @@ Route::post('/sesion_iniciada', [MangaController::class, 'buscarManga'])->name('
 // Ruta para mostrar detalles del manga
 Route::get('/manga/{id}', [MangaController::class, 'detallesManga'])->name('manga.detalles');
 
+//manejo de persimos proxy
+Route::get('/manga/{id}/feed', [MangaDexProxyController::class, 'fetchFeed']);
