@@ -44,6 +44,7 @@ class MangaController extends Controller
     public function detallesManga($id)
 {
     try {
+        // Solicita los detalles del manga específico
         $response = $this->client->request('GET', "https://api.mangadex.org/manga/{$id}");
         $manga = json_decode($response->getBody()->getContents());
 
@@ -52,17 +53,42 @@ class MangaController extends Controller
             return back()->withErrors(['error' => 'Detalles del manga no disponibles.']);
         }
 
-        return view('detalles', ['manga' => $manga->data]); // Pasa solo el objeto data
+        // Obtener imágenes de los capítulos
+        $imagenes = $this->obtenerImagenesManga($id); // Llamamos al método que obtendrá las imágenes
+
+        return view('detalles', [
+            'manga' => $manga->data, 
+            'imagenes' => $imagenes
+        ]); // Pasa solo el objeto data y las imágenes
     } catch (\Exception $e) {
         return back()->withErrors(['error' => 'Error al obtener detalles del manga: ' . $e->getMessage()]);
     }
 }
 
-    
-    
+private function obtenerImagenesManga($mangaId)
+{
+    // Aquí puedes hacer una solicitud a la API para obtener las imágenes (ejemplo)
+    try {
+        $response = $this->client->request('GET', "https://api.mangadex.org/manga/{$mangaId}/chapters");
+        $chapters = json_decode($response->getBody()->getContents());
 
-    
+        // Aquí puedes procesar y obtener las URLs de las imágenes de cada capítulo
+        $imagenes = []; // Inicializa un array para las imágenes
+        foreach ($chapters->data as $chapter) {
+            // Lógica para obtener imágenes del capítulo
+            $imagenes[] = [
+                'url' => "https://uploads.mangadex.org/chapters/{$chapter->id}/page.jpg" // Este es un ejemplo, ajusta según lo que devuelva la API
+            ];
+        }
+        return $imagenes;
+    } catch (\Exception $e) {
+        return []; // Retorna un array vacío en caso de error
+    }
 
-    
-    
+}
+
+
+
+
+//end
 }

@@ -38,3 +38,6 @@ Route::get('/manga/{id}', [MangaController::class, 'detallesManga'])->name('mang
 
 //manejo de persimos proxy
 Route::get('/manga/{id}/feed', [MangaDexProxyController::class, 'fetchFeed']);
+
+Route::get('/manga/{id}', [MangaController::class, 'detallesManga'])->name('manga.detalles');
+
