@@ -42,6 +42,7 @@ class ManejoEntradas extends Controller
         // Intentar autenticar al usuario
         if (Auth::attempt($request->only('email', 'password'))) {
             // Redirigir a la vista de sesión iniciada
+            //return redirect('sesion_iniciada');
             return redirect()->route('sesion_iniciada');
         }
 

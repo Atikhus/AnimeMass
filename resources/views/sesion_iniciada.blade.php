@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sesión Iniciada</title>
-    <link rel="icon" href="Assets/logo.png" type="Assets/jpg">
+    <link rel="icon" href="Assets/logo.png" type="image/png">
     <link rel="stylesheet" href="{{ asset('css/SesionStyle.css') }}">
 </head>
 <body>
@@ -12,42 +12,44 @@
     <h1>Bienvenido a AnimeMas</h1>
     <p>¡Has iniciado sesión correctamente!</p>
 
+    <!-- Mensajes de error -->
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <!-- Formulario de búsqueda de manga -->
-    <form action="{{ url('/sesion_iniciada') }}" method="POST">
+    <form action="{{ route('buscar.manga') }}" method="POST">
         @csrf
-        <input type="text" name="titulo" placeholder="Buscar manga" required>
+        <input type="text" name="titulo" placeholder="Buscar manga..."> <!-- Cambiado de 'search' a 'titulo' -->
         <button type="submit">Buscar</button>
     </form>
 
     <!-- Mostrar resultados de la búsqueda solo si hay datos -->
-    @if(isset($mangas) && count($mangas->data) > 0)
-        <h2>Resultados de la búsqueda</h2>
-        <div class="row">
-            @foreach($mangas->data as $manga)
-                <div class="col-md-4 text-center">
-                    @php
-                        // Obtener la relación 'cover_art'
-                        $cover = collect($manga->relationships)->firstWhere('type', 'cover_art');
-                        $coverId = $cover ? $cover->id : null;
-                    @endphp
-
-                    @if($coverId)
-                        <img src="https://uploads.mangadex.org/covers/{{ $manga->id }}/{{ $coverId }}.jpg" alt="{{ $manga->attributes->title->en }}" class="img-fluid">
-                    @else
-                        <img src="ruta/imagen/default.jpg" alt="Portada no disponible" class="img-fluid">
-                    @endif
-
-                    <h3>
-                        <a href="{{ route('manga.detalles', ['id' => $manga->id]) }}">
-                            {{ $manga->attributes->title->en ?? 'Título no disponible' }}
-                        </a>
-                    </h3>
-                </div>
-            @endforeach
+    @if(isset($mangas) && count($mangas) > 0)
+        @foreach($mangas as $manga)
+        <div>
+            <h2>
+                <a href="{{ route('manga.detalle', $manga->mal_id) }}">
+                    {{ $manga->title ?? 'Título no disponible' }}
+                </a>
+            </h2>
+            @if(isset($manga->images->jpg->image_url))
+                <img src="{{ $manga->images->jpg->image_url }}" alt="Portada de {{ $manga->title ?? 'sin título' }}">
+            @else
+                <p>No hay portada disponible.</p>
+            @endif
         </div>
+        @endforeach
     @else
-        <p>No se encontraron mangas con ese título.</p>
+        <p>No se encontraron mangas.</p>
     @endif
+
 </div>
 </body>
 </html>
