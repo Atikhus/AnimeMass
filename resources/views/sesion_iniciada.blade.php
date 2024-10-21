@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sesión Iniciada</title>
     <link rel="icon" href="Assets/logo.png" type="image/png">
-    <link rel="stylesheet" href="{{ asset('css/SesionStyle.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/SesionStyle.css') }}">    
 </head>
 <body>
 <div class="container">
@@ -33,14 +33,19 @@
     <!-- Mostrar resultados de la búsqueda solo si hay datos -->
     @if(isset($mangas) && count($mangas) > 0)
         @foreach($mangas as $manga)
+        @php
+        $coverArt = collect($manga->relationships)
+            ->where("type", "cover_art")
+            ->first()
+        @endphp
         <div>
             <h2>
-                <a href="{{ route('manga.detalle', $manga->mal_id) }}">
-                    {{ $manga->title ?? 'Título no disponible' }}
+                <a href="{{ route('manga.detalle', $manga->id) }}">
+                    {{ $manga->attributes->title->en ?? 'Título no disponible' }}
                 </a>
             </h2>
-            @if(isset($manga->images->jpg->image_url))
-                <img src="{{ $manga->images->jpg->image_url }}" alt="Portada de {{ $manga->title ?? 'sin título' }}">
+            @if(isset($coverArt))
+                <img src="" class="manga-cover" data-url="https://mangadex.org/covers/{{ $manga->id }}/{{ $coverArt->attributes->fileName }}" alt="Portada de {{ $manga->attributes->title->en ?? 'sin título' }}">
             @else
                 <p>No hay portada disponible.</p>
             @endif
@@ -49,6 +54,18 @@
     @else
         <p>No se encontraron mangas.</p>
     @endif
+
+    <script>
+        const imgs = document.getElementsByClassName("manga-cover");
+
+        for (const img of imgs) {
+            fetch("/api/get_cover?fileurl=" + encodeURIComponent(img.dataset.url))
+                .then(res => res.json())
+                .then(json => {
+                    img.src = "data:image/jpeg;base64," + json.base64;
+                })
+        }
+    </script>
 
 </div>
 </body>

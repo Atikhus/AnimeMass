@@ -5,16 +5,15 @@
     --color-fondo: linear-gradient(to right,rgba(48, 6, 65, 0.708),rgb(5, 3, 48));
     --color-background:rgb(98, 2, 188);
     --text-color:rgb(0, 0, 0);
-    --main-text-color:white;
+    --main-text-color:rgb(0, 0, 0);
     --exotic-color: linear-gradient(
         150deg,
         rgba(212, 1, 198, 0.883),
         #09F,
         #00DDFF
     );
-    
-    
 }
+
 
 .header_botons {
     padding: 10px;
@@ -69,7 +68,8 @@ button:active {
 body, html {
     font-family: "Roboto", sans-serif;
     /* background-image: url(Assets/wp2915668.jpg)no-repeat center center/cover;**/ 
-    background: var(--color-fondo);
+    background: url(../Assets/animesher.com_stars-gif-aesthetic-anime-1916094.gif) no-repeat center center/cover;
+
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;

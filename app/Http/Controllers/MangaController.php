@@ -29,11 +29,29 @@ class MangaController extends Controller
     try {
         // Realizamos la solicitud a la API de Jikan con el título ingresado
         $mangas = $this->mangaReaderService->buscarMangaPorTitulo($titulo);
-        
-        
+
+        // dd($npi);
         //dd($mangas);
 
         return view('sesion_iniciada', compact('mangas'));
+    } catch (\Exception $e) {
+        return back()->withErrors(['error' => 'Error al buscar manga: ' . $e->getMessage()]);
+    }
+}
+
+    public function getCover(Request $request)
+{
+    $fileurl = $request->input('fileurl');
+
+    try {
+        $base64 = $this->mangaReaderService->getCoverBase64($fileurl);
+        
+        // dd($npi);
+        //dd($mangas);
+
+        return response()->json([
+            'base64' => $base64
+        ]);
     } catch (\Exception $e) {
         return back()->withErrors(['error' => 'Error al buscar manga: ' . $e->getMessage()]);
     }
@@ -49,8 +67,13 @@ class MangaController extends Controller
            // Usamos el servicio para obtener los detalles del manga por su ID
             $mangaDetalle = $this->mangaReaderService->obtenerDetallesMangaPorId($id);
             //dd($mangaDetalle);
+            // Verifica la estructura de datos
+            //dd($mangaDetalle); // Para ver todos los detalles
+
            // Retornamos la vista con los detalles del manga
-            return view('detalles', compact('mangaDetalle'));
+        return view('detalles', [
+            'manga' => $mangaDetalle->data,
+        ]);
         } catch (\Exception $e) {
            // En caso de error, volvemos a la página anterior con un mensaje de error
         return back()->withErrors(['error' => 'Error al obtener los detalles del manga: ' . $e->getMessage()]);

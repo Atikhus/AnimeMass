@@ -1,13 +1,13 @@
 <?php
 
 namespace App\Services;
-
+use Illuminate\Support\Facades\Http;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Log;
 class MangaReaderService
 {
     private $client;
-    private $baseUrl = 'https://api.jikan.moe/v4/manga'; // Base URL sin 'featured'
+    private $baseUrl = 'https://api.mangadex.org'; 
 
     public function __construct()
     {
@@ -16,8 +16,8 @@ class MangaReaderService
 
     public function getMangas()
     {
-        // Realizar la solicitud para obtener mangas destacados
-        $response = $this->client->get("{$this->baseUrl}/"); // Aquí usamos '/featured'
+        // Realizar la solicitud para obtener mangas 
+        $response = $this->client->get("{$this->baseUrl}/"); 
 
         if ($response->getStatusCode() === 200) {
             return json_decode($response->getBody()->getContents()); // Retorna los datos de los mangas
@@ -29,8 +29,11 @@ class MangaReaderService
     public function buscarMangaPorTitulo($titulo)
 {
     try {
-        $response = $this->client->get("{$this->baseUrl}", [
-            'query' => ['q' => $titulo],
+        $response = $this->client->get("{$this->baseUrl}/manga", [
+            'query' => [
+                'title' => $titulo,
+                'includes[]' => 'cover_art'
+            ],
         ]);
 
         // Si obtenemos un código 200 (éxito)
@@ -46,15 +49,68 @@ class MangaReaderService
     }
 }
 
+public function getCoverBase64($fileurl)
+{
+    try {
+        $response = $this->client->get($fileurl);
+        
+        // Si obtenemos un código 200 (éxito)
+        if ($response->getStatusCode() === 200) {
+            $body = $response->getBody()->getContents();
+            
+            // dd($body);  // Muestra el contenido completo de la respuesta
+            return base64_encode($body);
+        }
 
-    
+        return null;
+    } catch (\Exception $e) {
+        dd($e->getMessage());  // Captura cualquier error que ocurra durante la solicitud
+    }
+}
+
+//esta fun me va a traer los datos del manga que se le mando el titulo
+public function buscarTituloMangaDex($titulo) {
+    $response = Http::get("https://api.mangadex.org/manga", [
+        'title' => $titulo,
+    ]);
+
+    if ($response->successful()) {
+        // Obtener los datos del manga
+        $mangaData = $response->json()['data'];
+
+        // Comprobar si hay resultados
+        if (!empty($mangaData)) {
+            // Retorna el primer manga que coincide
+            return $mangaData[0]; // Regresa el primer resultado
+        }
+    }
+
+    return null; // O maneja el error
+}
+
+public function obtenerCapitulosMangaDex($mangaId) {
+    $response = Http::get("https://api.mangadex.org/chapter", [
+        'manga' => $mangaId,
+    ]);
+
+    if ($response->successful()) {
+        return $response->json()['data']; // Devuelve los capítulos
+    }
+
+    return null; // O maneja el error
+}
+
+
+
 
 
 public function obtenerDetallesMangaPorId($id)
 {
     try {
         // Realizamos la solicitud a la API usando el ID del manga
-        $response = $this->client->get("{$this->baseUrl}/{$id}");
+        $response = $this->client->get("{$this->baseUrl}/manga/{$id}", [
+            'query' => ['includes[]' => 'cover_art']
+        ]);
 
         if ($response->getStatusCode() === 200) {
             return json_decode($response->getBody()->getContents());
