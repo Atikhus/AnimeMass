@@ -24,7 +24,7 @@
         
         <p><strong>Descripción:</strong> {{ $manga->attributes->description->en }}</p>
         
-
+        <a href="https://mangadex.org/manga/{{ $manga->id }}">leer manga</a>
 
         <script>
             const img = document.getElementById("manga-cover");
