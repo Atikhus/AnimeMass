@@ -1,22 +1,26 @@
-:root{
-    --color-fondo: linear-gradient(to right,rgba(0, 140, 158),rgb(6, 5, 20));
+:root {
+    --color-fondo: linear-gradient(to right, rgba(0, 140, 158), rgb(6, 5, 20));
 }
-*{
-}
-body{
-    background: url(../Assets/animesher.com_stars-gif-aesthetic-anime-1916094.gif) no-repeat center center/cover;
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+body {
+    background: url(../Assets/animesher.com_stars-gif-aesthetic-anime-1916094.gif) no-repeat center center/cover;
+    font-family: Arial, sans-serif;
+}
+
 /* Estilo general para el contenedor */
 .container {
-    max-width: 800px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 20px;
     text-align: center;
-    font-family: Arial, sans-serif;
-    background-color: rgba(255, 255, 255, 0.3); /* Fondo translúcido */
-    backdrop-filter: blur(10px); /* Desenfoque del fondo */
-    -webkit-backdrop-filter: blur(10px); /* Para compatibilidad con Safari */
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -29,7 +33,7 @@ h1 {
 
 h2 {
     color: #666;
-    margin: 20px 0 10px;
+    margin-top: 10px;
 }
 
 /* Estilo para el formulario de búsqueda */
@@ -58,32 +62,31 @@ button:hover {
     background-color: #0056b3;
 }
 
-/* Estilo para la lista de mangas */
-ul {
-    list-style-type: none;
-    padding: 0;
+/* Estilo para la cuadrícula de mangas */
+.manga-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columnas */
+    gap: 20px; /* Espacio entre las imágenes */
+    justify-items: center;
+    margin-top: 20px;
 }
 
-li {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin: 10px 0;
-    padding: 15px;
-    display: flex;
-    align-items: center;
-    background-color: #ffffff;
-    transition: box-shadow 0.3s ease;
+.manga-item {
+    text-align: center;
 }
 
-li:hover {
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+.manga-cover {
+    width: 250px;
+    height: auto;
+    gap: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilo para las imágenes de los mangas */
-img {
-    max-width: 100px; /* Ajusta el tamaño de las imágenes */
-    margin-right: 15px;
-    border-radius: 5px;
+h2 {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: #333;
 }
 
 /* Estilo para los mensajes de error */

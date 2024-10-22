@@ -30,6 +30,10 @@ class ManejoEntradas extends Controller
     return view('sesion_iniciada'); // Asegúrate de que el nombre de la vista sea correcto
 }
 
+public function showIndex()
+{
+    return view('index');
+}
 
     public function login(Request $request)
     {
@@ -43,7 +47,7 @@ class ManejoEntradas extends Controller
         if (Auth::attempt($request->only('email', 'password'))) {
             // Redirigir a la vista de sesión iniciada
             //return redirect('sesion_iniciada');
-            return redirect()->route('sesion_iniciada');
+            return redirect()->route('index');
         }
 
         // Si la autenticación falla, redirigir de nuevo a la página de inicio de sesión

@@ -26,34 +26,36 @@
     <!-- Formulario de búsqueda de manga -->
     <form action="{{ route('buscar.manga') }}" method="POST">
         @csrf
-        <input type="text" name="titulo" placeholder="Buscar manga..."> <!-- Cambiado de 'search' a 'titulo' -->
+        <input type="text" name="titulo" placeholder="Buscar manga...">
         <button type="submit">Buscar</button>
     </form>
 
     <!-- Mostrar resultados de la búsqueda solo si hay datos -->
-    @if(isset($mangas) && count($mangas) > 0)
-        @foreach($mangas as $manga)
-        @php
-        $coverArt = collect($manga->relationships)
-            ->where("type", "cover_art")
-            ->first()
-        @endphp
-        <div>
-            <h2>
-                <a href="{{ route('manga.detalle', $manga->id) }}">
-                    {{ $manga->attributes->title->en ?? 'Título no disponible' }}
-                </a>
-            </h2>
-            @if(isset($coverArt))
-                <img src="" class="manga-cover" data-url="https://mangadex.org/covers/{{ $manga->id }}/{{ $coverArt->attributes->fileName }}" alt="Portada de {{ $manga->attributes->title->en ?? 'sin título' }}">
-            @else
-                <p>No hay portada disponible.</p>
-            @endif
-        </div>
-        @endforeach
-    @else
-        <p>No se encontraron mangas.</p>
-    @endif
+    <div class="manga-grid">
+        @if(isset($mangas) && count($mangas) > 0)
+            @foreach($mangas as $manga)
+            @php
+            $coverArt = collect($manga->relationships)
+                ->where("type", "cover_art")
+                ->first();
+            @endphp
+            <div class="manga-item">
+                @if(isset($coverArt))
+                    <img src="/Assets/logo.png" class="manga-cover" data-url="https://mangadex.org/covers/{{ $manga->id }}/{{ $coverArt->attributes->fileName }}" alt="Portada de {{ $manga->attributes->title->en ?? 'sin título' }}">
+                @else
+                    <p>No hay portada disponible.</p>
+                @endif
+                <h2>
+                    <a href="{{ route('manga.detalle', $manga->id) }}">
+                        {{ $manga->attributes->title->en ?? 'Título no disponible' }}
+                    </a>
+                </h2>
+            </div>
+            @endforeach
+        @else
+            <p>No se encontraron mangas.</p>
+        @endif
+    </div>
 
     <script>
         const imgs = document.getElementsByClassName("manga-cover");

@@ -29,11 +29,14 @@
                 <img src="Assets/logo.png" alt="logo">
                 <span>AnimeMas</span>
             </div>
-            <form class="search-form">
+            <form  class="search-form">
                 <input type="text" class="search-input" placeholder="Buscar aquí">
-                <button type="submit" class="search-btn">
-                    <i class="fas fa-search"></i>
+                <button type="submit" class="search-btn"><a href="{{ route('login') }}">
+                
+                    <i class="fas fa-search"><a href="{{route('sesion_iniciada')}}">buscar mangas</a></i>
+                </a>
                 </button>
+
             </form>
             <nav>
                 <ul>
@@ -67,7 +70,7 @@
                 con historias que van desde los clásicos del manga hasta las últimas novedades.
 
                 ¡Navega ahora y encuentra el manga perfecto para ti!</p>
-            <a href="#conocer">Descubre más ➟</a>
+            <a href="{{route('sesion_iniciada')}}">Descubre más ➟</a>
         </section>
     </header>
     <section id="descubre" class="anime-section">

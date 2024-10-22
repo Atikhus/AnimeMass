@@ -10,9 +10,13 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/index', [ManejoEntradas::class, 'showIndex'])->name('index');
 // Rutas para inicio de sesión
 Route::get('/login', [ManejoEntradas::class, 'showLoginForm'])->name('login');
 Route::post('/login', [ManejoEntradas::class, 'login'])->name('login.process');
+
+//boton de busqueda
+//Ruoute::get()
 
 // Rutas para registro de usuario
 Route::get('/sign', [ManejoEntradas::class, 'showSignForm'])->name('sign');
