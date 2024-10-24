@@ -6,9 +6,9 @@
     <title>{{ $manga->attributes->title->en }}</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="icon" href="/Assets/logo.png">
+    @livewireStyles
 </head>
 <body>
-    <!-- Banner dinámico arriba -->
     <div class="banner">
         <img src="/Assets/logo.png" id="banner-image" alt="Banner Manga">
     </div>
@@ -30,27 +30,51 @@
         
         <p><strong>Descripción:</strong> {{ $manga->attributes->description->en }}</p>
         
-        <!-- Botón para leer manga -->
         <button class="btn"><a href="https://mangadex.org/manga/{{ $manga->id }}">Leer Manga</a></button>
+        
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <script>
             const mangaCoverImg = document.getElementById("manga-cover");
             const bannerImg = document.getElementById("banner-image");
-
-            // Fetch para cargar la portada del manga
+            
             fetch("/api/get_cover?fileurl=" + encodeURIComponent(mangaCoverImg.dataset.url))
-                .then(res => res.json())
-                .then(json => {
-                    mangaCoverImg.src = "data:image/jpeg;base64," + json.base64;
+            .then(res => res.json())
+            .then(json => {
+                mangaCoverImg.src = "data:image/jpeg;base64," + json.base64;
+                bannerImg.src = "data:image/jpeg;base64," + json.base64;
+            });
+
+            window.addEventListener('beforeunload', function(event) {
+                const mangaId = "{{$manga->id}}"; // ID del manga
+                const url = window.location.href;
+
+                fetch('/api/save-progress', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
+                    body: JSON.stringify({
+                        manga_id: mangaId,
+                        url: url
+                    })
+                }).then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error en la solicitud');
+                    }
+                    return response.json();
+                }).catch(error => {
+                    console.error('Error al guardar el progreso:', error);
                 });
 
-            // Fetch para cargar la misma portada como banner en la parte superior
-            fetch("/api/get_cover?fileurl=" + encodeURIComponent(mangaCoverImg.dataset.url))
-                .then(res => res.json())
-                .then(json => {
-                    bannerImg.src = "data:image/jpeg;base64," + json.base64;
-                });
+                event.preventDefault();
+            });
         </script>
+
+        <!-- Aquí es donde integrarás el componente de Livewire -->
+        @livewire('comment-component', ['mangaId' => $manga->id])
     </div>
+    @livewireScripts
 </body>
 </html>

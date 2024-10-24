@@ -4,19 +4,36 @@ use App\Http\Controllers\KomgaController;
 use App\Http\Controllers\ManejoEntradas;
 use App\Http\Controllers\MangaController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CommentController;
+//borrar
+use App\Http\Controllers\ProgressController;
 
 // Página de inicio
 Route::get('/', function () {
     return view('index');
 });
 
+//solo para mostrar el index despues de que inicio sesion
 Route::get('/index', [ManejoEntradas::class, 'showIndex'])->name('index');
 // Rutas para inicio de sesión
 Route::get('/login', [ManejoEntradas::class, 'showLoginForm'])->name('login');
 Route::post('/login', [ManejoEntradas::class, 'login'])->name('login.process');
 
-//boton de busqueda
-//Ruoute::get()
+
+//rutas de permisos
+
+Route::middleware('auth')->group(function(){
+    Route::get('/admind_mode',function(){
+        return view('admin.admind_panel');
+    });
+});
+
+Route::middleware('auth')->group(function(){
+    Route::get('/mangaka_mode',function(){
+        return view('mangaka.mangaka_panel');
+    });
+
+});
 
 // Rutas para registro de usuario
 Route::get('/sign', [ManejoEntradas::class, 'showSignForm'])->name('sign');
@@ -42,3 +59,9 @@ Route::get('/capitulo/{id}/leer', [MangaController::class, 'leerContenido'])->na
 
 // Ruta exclusiva para leer el capítulo de un manga
 Route::get('/manga/leer/{id}', [MangaController::class, 'leerCapitulo'])->name('manga.leer');
+
+
+//rutas para los comentarios
+
+Route::get('/comments/{mangaId}', [CommentController::class, 'index']);
+Route::post('/comments', [CommentController::class, 'store']);

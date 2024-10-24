@@ -55,7 +55,7 @@
                 @auth
                     <!-- Mostrar el logo y el mensaje de bienvenida si el usuario ha iniciado sesión -->
                     <img src="{{ asset('Assets/dandy.ico') }}" alt="Logo de usuario autenticado">
-                    <span class="Bienvenido" >Bienvenido, {{ Auth::user()->name }}</span>
+                    <span class="Bienvenido" >Bienvenido, {{ Auth::user()->name}}</span>
                 @else
                     <!-- Mostrar espacio vacío si no ha iniciado sesión -->
                     <img src="{{ asset('Assets/dead.ico')}}" alt="sesion sin inciar">

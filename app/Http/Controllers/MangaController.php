@@ -30,7 +30,7 @@ class MangaController extends Controller
         // Realizamos la solicitud a la API de Jikan con el título ingresado
         $mangas = $this->mangaReaderService->buscarMangaPorTitulo($titulo);
 
-        // dd($npi);
+        
         //dd($mangas);
 
         return view('sesion_iniciada', compact('mangas'));
@@ -46,7 +46,6 @@ class MangaController extends Controller
     try {
         $base64 = $this->mangaReaderService->getCoverBase64($fileurl);
         
-        // dd($npi);
         //dd($mangas);
 
         return response()->json([
@@ -59,7 +58,6 @@ class MangaController extends Controller
 
     
 
-    // Método para obtener los detalles de un manga específico
    // Método para obtener los detalles de un manga específico
     public function detallesManga($id)
     {
@@ -90,8 +88,6 @@ public function leerCapitulo($id)
     //dd($mangaService);
 
 return view('leer_capitulo', ['imageUrls' => $imageUrls]);
-
-
 }
 
 

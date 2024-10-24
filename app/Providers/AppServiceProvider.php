@@ -4,6 +4,8 @@ namespace App\Providers;
 use App\Models\User;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Gate;
+use Livewire\Livewire;
+use App\Http\Livewire\CommentComponent;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -20,6 +22,7 @@ class AppServiceProvider extends ServiceProvider
     //aqui vamos a registrar los persimos para el admin
     public function boot(): void
     {
+        Livewire::component('comment-component', CommentComponent::class);
         //admin mode
         Gate::define('see-reports',function(User $user){
             return $user->role ==User::ROLE_ADMINISTRATOR;
