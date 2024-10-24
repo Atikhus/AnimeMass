@@ -23,9 +23,7 @@
                 <li>
                     <a href="index">a</a>
                 </li>
-                <a href="{{ route('admind_mode') }}" :class="{ ' :active': request()->routeIs('mangaka_panel') }">
-                    Nombre del enlace
-                </a>
+            
 
             </ul>
         </nav>

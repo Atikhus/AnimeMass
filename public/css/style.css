@@ -42,7 +42,11 @@ textarea {
     border-radius: 8px; /* Bordes redondeados */
     padding: 10px;
     margin-bottom: 10px; /* Espaciado entre comentarios */
-    background-color: #f9f9f9; /* Fondo gris claro */
+    
+    background-color: rgba(255, 255, 255, 0.562);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 #banner-image {

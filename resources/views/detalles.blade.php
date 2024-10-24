@@ -45,31 +45,37 @@
                 bannerImg.src = "data:image/jpeg;base64," + json.base64;
             });
 
-            window.addEventListener('beforeunload', function(event) {
-                const mangaId = "{{$manga->id}}"; // ID del manga
-                const url = window.location.href;
-
-                fetch('/api/save-progress', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                    },
-                    body: JSON.stringify({
-                        manga_id: mangaId,
-                        url: url
-                    })
-                }).then(response => {
-                    if (!response.ok) {
-                        throw new Error('Error en la solicitud');
-                    }
-                    return response.json();
-                }).catch(error => {
-                    console.error('Error al guardar el progreso:', error);
-                });
-
-                event.preventDefault();
-            });
+            /**
+             * 
+             * 
+             * 
+             * 
+             window.addEventListener('beforeunload', function(event) {
+                 const mangaId = "{{$manga->id}}"; // ID del manga
+                 const url = window.location.href;
+ 
+                 fetch('/api/save-progress', {
+                     method: 'POST',
+                     headers: {
+                         'Content-Type': 'application/json',
+                         'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                     },
+                     body: JSON.stringify({
+                         manga_id: mangaId,
+                         url: url
+                     })
+                 }).then(response => {
+                     if (!response.ok) {
+                         throw new Error('Error en la solicitud');
+                     }
+                     return response.json();
+                 }).catch(error => {
+                     console.error('Error al guardar el progreso:', error);
+                 });
+ 
+                 event.preventDefault();
+             });
+             */
         </script>
 
         <!-- Aquí es donde integrarás el componente de Livewire -->
