@@ -61,7 +61,3 @@ Route::get('/manga/leer/{id}', [MangaController::class, 'leerCapitulo'])->name('
 Route::get('/comments/{mangaId}', [CommentController::class, 'index']);
 Route::post('/comments', [CommentController::class, 'store']);
 
-
-//ruta de control panel
-
-Route::get('/control_panel', [ManejoEntradas::class, 'showPanelControl'])->name('showme.panel');

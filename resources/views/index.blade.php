@@ -44,6 +44,7 @@
                     <li><a href="#descubre">Descubre</a></li>
                     <li><a href="#categorias">Categorías</a></li>
                     <li><a href="{{ route('control_panel') }}">Dashboard</a></li>
+                    
                     @auth
                         <!-- Si el usuario ha iniciado sesión, no mostramos los botones de inicio de sesión -->
                     @else
@@ -55,6 +56,7 @@
             <div class="sesionActiva">
                 @auth
                     <!-- Mostrar el logo y el mensaje de bienvenida si el usuario ha iniciado sesión -->
+                    
                     <img src="{{ asset('Assets/dandy.ico') }}" alt="Logo de usuario autenticado">
                     <span class="Bienvenido" >Bienvenido, {{ Auth::user()->name}}</span>
                     
