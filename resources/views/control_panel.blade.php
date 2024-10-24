@@ -12,6 +12,7 @@
         <div class="header-content">
             <img src="Assets/logo.png" alt="Logo de Manga Mas" class="logo">
             <h1>MangaMas</h1>
+            <a href="{{ route('index') }}"><img src="{{ asset('Assets/dandy.ico') }}" alt=""></a>
         </div>
     </header>
     <div class="container">
@@ -20,12 +21,9 @@
                 <li><a href="#" data-section="manga-stats">Estadísticas de Manga</a></li>
                 <li><a href="#" data-section="mangaka-stats">Estadísticas de Mangakas</a></li>
                 <li><a href="#" data-section="reader-stats">Estadísticas de Lectores</a></li>
-                <li>
-                    <a href="index">a</a>
-                </li>
-                <a href="{{ route('admind_mode') }}" :class="{ ' :active': request()->routeIs('mangaka_panel') }">
-                    Nombre del enlace
-                </a>
+        
+    
+            
 
             </ul>
         </nav>
