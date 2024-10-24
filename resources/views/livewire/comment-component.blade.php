@@ -1,11 +1,12 @@
 <div>
-    <h3>Comentarios:</h3>
+    <h3>Comentarios: cuentanos que tal te parece este manga!</h3>
 
-    <div>
+    <div class="comments-section">
         @foreach($comments as $comment)
-            <div>
-                <strong>{{ $comment->user->name }}</strong>: <span>{{ $comment->comment }}</span>
-            </div>
+        <div class="comment-box">
+            <div class="comment-user">{{ $comment->user->name }}</div>
+            <div class="comment-text">{{ $comment->comment }}</div>
+        </div>
         @endforeach
     </div>
 

@@ -16,6 +16,35 @@
 .btn{
     margin: 0 auto;
 }
+.comments-section {
+    margin-top: 20px;
+}
+.comment-user {
+    font-weight: bold; /* Negrita para el nombre del usuario */
+    margin-bottom: 5px; /* Espacio debajo del nombre */
+}
+
+.comment-text {
+    color: #333; /* Color del texto del comentario */
+}
+
+textarea {
+    width: 100%; /* Ancho completo del área de texto */
+    height: 80px; /* Altura del área de texto */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 4px; /* Bordes redondeados */
+    padding: 10px; /* Espaciado interno */
+    margin-top: 10px; /* Margen superior */
+}
+
+.comment-box {
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 10px;
+    margin-bottom: 10px; /* Espaciado entre comentarios */
+    background-color: #f9f9f9; /* Fondo gris claro */
+}
+
 #banner-image {
     width: 100%;
     height: 180px;
