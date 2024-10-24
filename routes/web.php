@@ -22,11 +22,6 @@ Route::post('/login', [ManejoEntradas::class, 'login'])->name('login.process');
 
 //rutas de permisos
 
-Route::middleware('auth')->group(function(){
-    Route::get('/admind_mode',function(){
-        return view('admin.admind_panel');
-    });
-});
 
 Route::middleware('auth')->group(function(){
     Route::get('/mangaka_mode',function(){
@@ -65,3 +60,8 @@ Route::get('/manga/leer/{id}', [MangaController::class, 'leerCapitulo'])->name('
 
 Route::get('/comments/{mangaId}', [CommentController::class, 'index']);
 Route::post('/comments', [CommentController::class, 'store']);
+
+
+//ruta de control panel
+
+Route::get('/control_panel', [ManejoEntradas::class, 'showPanelControl'])->name('showme.panel');

@@ -21,8 +21,14 @@
                 <li><a href="#" data-section="manga-stats">Estadísticas de Manga</a></li>
                 <li><a href="#" data-section="mangaka-stats">Estadísticas de Mangakas</a></li>
                 <li><a href="#" data-section="reader-stats">Estadísticas de Lectores</a></li>
+<<<<<<< HEAD
+                <li>
+                    <a href="index">a</a>
+                </li>
+=======
         
     
+>>>>>>> 9385a947590fd611442b9f1b0edca9f13863f217
             
 
             </ul>

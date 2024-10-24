@@ -77,4 +77,9 @@ public function showIndex()
         // Redirigir después del registro
         return redirect('/'); // Cambia esto si tienes una página específica después del registro
     }
+
+
+
+
+    
 }

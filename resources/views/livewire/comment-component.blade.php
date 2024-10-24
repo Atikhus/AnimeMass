@@ -1,5 +1,6 @@
 <div>
-    <h3>Comentarios: cuentanos que tal te parece este manga!</h3>
+    <h2>Comentarios:</h2>
+    <h3> cuentanos que tal te parece este manga!</h3>
 
     <div class="comments-section">
         @foreach($comments as $comment)
