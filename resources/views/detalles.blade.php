@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $manga->attributes->title->en }}</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="icon" href="/Assets/logo.png">
+    
+
     @livewireStyles
 </head>
 <body>
@@ -31,8 +34,20 @@
         <p><strong>Descripción:</strong> {{ $manga->attributes->description->en }}</p>
         
         <button class="btn"><a href="https://mangadex.org/manga/{{ $manga->id }}">Leer Manga</a></button>
+        <div>
+            <!--seccion espcial para enviar los datos de la url de esta pagina con su id para la base de datos -->
+            
+            <button id="saveMangaButton" data-manga-id="{{ $manga->id }}">agregar a lista de favoritos</button>
+
+    
+
+
+
         
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+        
+
+        
+        
 
         <script>
             const mangaCoverImg = document.getElementById("manga-cover");
@@ -80,7 +95,10 @@
 
         <!-- Aquí es donde integrarás el componente de Livewire -->
         @livewire('comment-component', ['mangaId' => $manga->id])
+        
+
     </div>
     @livewireScripts
+    <script src="{{ asset('js/detalles.js') }}"></script>
 </body>
 </html>

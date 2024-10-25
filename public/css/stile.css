@@ -7,20 +7,111 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #f4f4f4; /* Color de fondo gris claro */
+    color: #333; /* Color del texto */
 }
 
 header {
-    background-color: #5632ca;
-    color: white;
+    background: url(../Assets/animesher.com_stars-gif-aesthetic-anime-1916094.gif) no-repeat center center/cover;
+    background-color: #5632ca; /* Color morado */
+    color: white; /* Texto en blanco */
     padding: 1rem;
 }
+button {
+    border: 0;
+    background-image: linear-gradient(
+        150deg,
+        rgba(212, 1, 198, 0.883),
+        #09F,
+        #00DDFF
+    );
+    border-radius: 8px;
+    color: #fff;
+    display: flex;         /* Permite flex en el contenido del botón */
+    font-size: 18px;
+    padding: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.Bienvenido{
+    color: #333;
+}
+/* espacio para manitular todo lo de perfil usuario*/
+/* Estilo para la caja que contiene los divs */
+.caja-contenedora {
+    border: 2px solid #5632ca; /* Borde morado */
+    border: 0;
+    background-image: linear-gradient(
+        150deg,
+        rgba(212, 1, 198, 0.883),
+        #09F,
+        #00DDFF
+    );
+    border-radius: 8px;
+    color: #fff;
+    display: flex;         /* Permite flex en el contenido del botón */
+    font-size: 18px;
+    padding: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+
+
+
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Los divs en columna */
+    width: 300px; /* Ancho ajustado */
+    background-color: #f4f4f4;
+    margin: 20px auto; /* Centramos la caja horizontalmente */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para mayor visibilidad */
+}
+
+/* Alineación a la izquierda */
+.caja-contenedora {
+    align-items: flex-start; /* Alinea los elementos al inicio (izquierda) */
+}
+
+/* Estilo para cada div individual */
+.caja-contenedora div {
+
+    border: 1px solid #333; /* Borde de cada div */
+    padding: 10px;
+    margin-bottom: 10px; /* Espacio entre los divs */
+    background-color: #ffffff; /* Fondo blanco */
+    text-align: center; /* Centra el contenido dentro de cada div */
+    width: 100%; /* Cada div ocupa todo el ancho de la caja */
+}
+
+/* Último div sin margen inferior */
+.caja-contenedora div:last-child {
+    margin-bottom: 0;
+}
+
+/* Estilo de las imágenes */
+.caja-contenedora img {
+    max-width: 150px; /* Imagen más grande */
+    display: block;
+    margin: 0 auto 10px; /* Centrar la imagen dentro del div */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .header-content {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between; /* Espacio entre logo y título */
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -28,7 +119,6 @@ header {
 .logo {
     height: 3rem; 
     width: auto;
-    margin-right: 1rem;
 }
 
 h1 {
@@ -37,13 +127,18 @@ h1 {
 
 .container {
     display: flex;
-    flex-direction: column;
+    margin-top: 20px; /* Espacio entre el header y el contenido */
 }
 
 .sidebar {
-    background-color: #4713af;
-    color: white;
+    background: url(../Assets/animesher.com_stars-gif-aesthetic-anime-1916094.gif) no-repeat center center/cover;
+    background-color: #4713af; /* Color morado más oscuro */
+    color: rgb(247, 247, 247);
     padding: 1rem;
+    height: calc(100vh - 60px); /* Altura total menos el header */
+    position: fixed;
+    width: 200px;
+    overflow-y: auto; /* Permitir desplazamiento si el contenido es grande */
 }
 
 .sidebar ul {
@@ -55,7 +150,7 @@ h1 {
 }
 
 .sidebar ul li a {
-    color: white;
+    color: rgb(255, 255, 255); /* Enlace en blanco */
     text-decoration: none;
     display: block;
     padding: 0.5rem;
@@ -65,39 +160,62 @@ h1 {
 
 .sidebar ul li a:hover,
 .sidebar ul li a.active {
-    background-color: #4a14ee;
+    background-color: #4a14ee; /* Color de fondo al pasar el mouse */
 }
 
 .dashboard {
     flex: 1;
     padding: 1rem;
+    margin-left: 200px; /* Espacio a la izquierda para el sidebar */
 }
 
 .dashboard-item {
-    background-color: white;
+    background-color: rgb(255, 255, 255); /* Fondo blanco */
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 1rem;
     margin-bottom: 1rem;
-    display: none;
+    display: none; /* Ocultar por defecto */
 }
 
 .dashboard-item.active {
-    display: block;
+    display: block; /* Solo se muestra la sección activa */
 }
 
 h2 {
-    color: #333;
-    border-bottom: 2px solid #333;
+    color: #5632ca; /* Color morado para los encabezados de sección */
+    border-bottom: 2px solid #5632ca; /* Línea en la parte inferior */
     padding-bottom: 0.5rem;
     margin-bottom: 1rem;
-    font-size: 1.2rem;
+    font-size: 1.5rem; /* Tamaño del texto */
 }
 
 .chart-container {
     position: relative;
     height: 300px;
     width: 100%;
+}
+
+.perfil-container {
+    background-color: #f4f4f4; /* Fondo gris claro para el contenedor de perfil */
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.box-lista-favorita {
+    background-color: #ffffff; /* Fondo blanco para la lista de favoritos */
+    border: 1px solid #ddd; /* Borde gris claro */
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px; /* Espacio en la parte superior */
+}
+
+.box-x, .box-out-sign {
+    background-color: #ffffff; /* Fondo blanco */
+    border: 1px solid #ddd; /* Borde gris claro */
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px; /* Espacio en la parte superior */
 }
 
 @media (min-width: 768px) {

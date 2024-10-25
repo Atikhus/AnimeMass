@@ -37,6 +37,7 @@ textarea {
     margin-top: 10px; /* Margen superior */
 }
 
+
 .comment-box {
     border: 1px solid #ccc; /* Borde gris claro */
     border-radius: 8px; /* Bordes redondeados */
@@ -73,6 +74,11 @@ textarea {
 
 header span {
     display: flex;         /* Asegúrate de que el span se comporte como un contenedor flex */
+}
+#box-lista-favorita {
+    border: 1px solid red; /* Agrega un borde para visualizar */
+    padding: 10px; /* Espaciado interno para mejor visibilidad */
+    background-color: white; /* Asegúrate de que el fondo no lo oculte */
 }
 
 button {

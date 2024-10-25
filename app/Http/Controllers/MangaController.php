@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\MangaReaderService;
+use App\Models\Manga;
+use App\Models\UserLink;
+use Illuminate\Support\Facades\Auth;
 
 class MangaController extends Controller
 {
@@ -89,6 +92,30 @@ public function leerCapitulo($id)
 
 return view('leer_capitulo', ['imageUrls' => $imageUrls]);
 }
+
+
+public function saveMangaId(Request $request)
+{
+    $request->validate([
+        'manga_id' => 'required|string',
+    ]);
+    $userId = Auth::id();
+    
+    
+    // Verifica si el usuario está autenticado
+    if (!$userId) {
+        return response()->json(['success' => false, 'message' => 'Usuario no autenticado'], 401);
+    }
+
+    // Guarda el ID en la base de datos
+    UserLink::create([
+        'user_id' => $userId,
+        'url' => $request->manga_id,
+    ]);
+
+    return response()->json(['success' => true]);
+}
+
 
 
 

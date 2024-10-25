@@ -1,0 +1,6 @@
+body {
+    background: url('../Assets/06-51-32-766_512.gif') no-repeat center center/cover;
+    background-size: cover; /* Asegura que la imagen se extienda completamente */
+    height: 100vh; /* Hace que el fondo cubra toda la altura de la pantalla */
+    margin: 0;
+}

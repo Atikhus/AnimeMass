@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\MangaProgress;
 use Illuminate\Support\Facades\Auth;
 
+
 class ProgressController extends Controller
 {
     // Método para guardar el progreso del manga
@@ -50,4 +51,7 @@ class ProgressController extends Controller
             return response()->json(['message' => 'No se encontró progreso para este manga.'], 404);
         }
     }
+
+    
+
 }
