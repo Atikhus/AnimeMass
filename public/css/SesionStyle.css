@@ -11,6 +11,9 @@
 body {
     background: url(../Assets/animesher.com_stars-gif-aesthetic-anime-1916094.gif) no-repeat center center/cover;
     font-family: Arial, sans-serif;
+    background-size: cover; /* Asegura que la imagen se extienda completamente */
+    height: 100vh; /* Hace que el fondo cubra toda la altura de la pantalla */
+    margin: 0;
 }
 
 /* Estilo general para el contenedor */

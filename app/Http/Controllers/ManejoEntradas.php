@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
+
 class ManejoEntradas extends Controller
 {
     public function showLoginForm()
@@ -78,8 +79,19 @@ public function showIndex()
         return redirect('/'); // Cambia esto si tienes una página específica después del registro
     }
 
-
-
-
+    public function showProfile(){
+        $user = Auth::user();
+        return view('user.usuario', compact('user'))->render(); // Esto retornará el HTML de la vista
+    }
     
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/');
+    }
+
+    public function showFavoriteList(){
+        return view('user.lista_favoritos');
+    }
+
 }

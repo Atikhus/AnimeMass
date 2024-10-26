@@ -1,3 +1,77 @@
+
+document.addEventListener("DOMContentLoaded", () => {
+    const links = document.querySelectorAll('.sidebar a[data-section]');
+    const sections = document.querySelectorAll('.dashboard-item');
+
+    links.forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const sectionId = this.getAttribute('data-section');
+
+            // Ocultar todas las secciones
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Mostrar la sección seleccionada
+            const activeSection = document.getElementById(sectionId);
+            if (activeSection) {
+                activeSection.classList.add('active');
+            }
+        });
+    });
+
+    // Activar la primera sección por defecto
+    if (sections.length > 0) {
+        sections[0].classList.add('active');
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Cargar el contenido del otro HTML
+function loadContent() {
+    console.log("Cargando contenido...");
+    fetch('/usuario')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.text();
+    })
+    .then(data => {
+        console.log(data); // Verifica qué se está recibiendo
+        let parser = new DOMParser();
+        let doc = parser.parseFromString(data, 'text/html');
+        let content = doc.querySelector('#div-que-quiero-cargar');
+        if (content) {
+            document.getElementById('box-lista-favorita').innerHTML = content.innerHTML;
+        } else {
+            console.error('No se encontró el contenido');
+        }
+    })
+    
+    .catch(error => console.error('Error:', error));
+
+}
+
 const mangaData = {
     labels: ['One Piece', 'Naruto', 'Bleach', 'Dragon Ball', 'Death Note'],
     data: [500, 400, 300, 350, 250]
@@ -61,7 +135,6 @@ function createChart(canvasId, chartData, chartType = 'bar') {
     });
 }
 
-
 function handleNavigation() {
     const navLinks = document.querySelectorAll('.sidebar a');
     const sections = document.querySelectorAll('.dashboard-item');
@@ -71,10 +144,8 @@ function handleNavigation() {
             e.preventDefault();
             const targetId = link.getAttribute('data-section');
 
-
             navLinks.forEach(link => link.classList.remove('active'));
             link.classList.add('active');
-
 
             sections.forEach(section => {
                 if (section.id === targetId) {
@@ -84,29 +155,31 @@ function handleNavigation() {
                 }
             });
 
-
-            charts[targetId].update();
+            if (charts[targetId]) {
+                charts[targetId].update();
+            }
         });
     });
 }
 
-
 const charts = {};
 
-
 window.onload = function() {
+    loadContent(); // Carga el contenido de usuario en la sección adecuada
     
-    charts['manga-stats'] = createChart('mangaChart', mangaData);
-    charts['mangaka-stats'] = createChart('mangakaChart', mangakaData);
-    charts['reader-stats'] = createChart('readerChart', readerData, 'pie');
+/**
+ * 
+ * 
+// Crear los gráficos para las otras secciones
+charts['manga-stats'] = createChart('mangaChart', mangaData);
+charts['mangaka-stats'] = createChart('mangakaChart', mangakaData);
+charts['reader-stats'] = createChart('readerChart', readerData, 'pie');
 
-
-    handleNavigation();
-
-
-    document.querySelector('.sidebar a').click();
+handleNavigation();
+ * 
+ * 
+ */
 };
-
 
 window.addEventListener('resize', function() {
     Object.values(charts).forEach(chart => chart.resize());

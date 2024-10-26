@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
+use App\Models\UserLink;
 
 class CommentComponent extends Component
 {
@@ -34,6 +35,9 @@ class CommentComponent extends Component
         $this->comments = Comment::where('manga_id', $this->mangaId)->get();
         $this->newComment = '';
     }
+
+    
+
 
     public function render()
     {

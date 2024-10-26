@@ -19,6 +19,12 @@ Route::get('/index', [ManejoEntradas::class, 'showIndex'])->name('index');
 Route::get('/login', [ManejoEntradas::class, 'showLoginForm'])->name('login');
 Route::post('/login', [ManejoEntradas::class, 'login'])->name('login.process');
 
+//cerrar sesion desde el dashboar perfil
+
+Route::get('/logout', [ManejoEntradas::class, 'logout'])->name('logout');
+
+
+
 
 //rutas de permisos
 
@@ -60,4 +66,15 @@ Route::get('/manga/leer/{id}', [MangaController::class, 'leerCapitulo'])->name('
 
 Route::get('/comments/{mangaId}', [CommentController::class, 'index']);
 Route::post('/comments', [CommentController::class, 'store']);
+
+//mostrar la vista del usuario con sus atributos
+Route::get('/usuario', [ManejoEntradas::class, 'showProfile'])->name('usuario');
+//ruta para mostrar la vista de lista manga favorito
+Route::get('/lista_favoritos', [ManejoEntradas::class, 'showFavoriteList'])->name('lista_favoritos');
+
+//ruta para enviar id a la base de datos
+Route::post('/save-manga', [MangaController::class, 'saveMangaId']);
+//traer esos id
+Route::get('/lista-favoritos', [MangaController::class, 'listaFavoritos'])->middleware('auth')->name('lista.favoritos');
+
 

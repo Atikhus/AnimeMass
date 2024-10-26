@@ -20,10 +20,8 @@
             <ul>
                 <li><a href="#" data-section="manga-stats">Estadísticas de Manga</a></li>
                 <li><a href="#" data-section="mangaka-stats">Estadísticas de Mangakas</a></li>
-                <li><a href="#" data-section="reader-stats">Estadísticas de Lectores</a></li>
-                
-            
-
+                <li><a href="#" data-section="reader-stats">Perfil de Usuario</a></li>
+                <li><a href="index">Ir Atrás</a></li>
             </ul>
         </nav>
         <main class="dashboard">
@@ -40,9 +38,19 @@
                 </div>
             </section>
             <section class="dashboard-item" id="reader-stats">
-                <h2>Edad de Lectores</h2>
-                <div class="chart-container">
-                    <canvas id="readerChart"></canvas>
+                <h2>Perfil de Usuario</h2>
+                
+                <button class="exit-buton" >
+                    <li><a href="{{ route('logout') }}">desconectarse</a></li>
+                </button>
+                
+                <div class="perfil-container">
+                    <div id="box-lista-favorita">
+
+
+
+
+                    </div>
                 </div>
             </section>
         </main>

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\MangaReaderService;
+use App\Models\Manga;
+use App\Models\UserLink;
+use Illuminate\Support\Facades\Auth;
 
 class MangaController extends Controller
 {
@@ -64,7 +67,9 @@ class MangaController extends Controller
         try {
            // Usamos el servicio para obtener los detalles del manga por su ID
             $mangaDetalle = $this->mangaReaderService->obtenerDetallesMangaPorId($id);
-            //dd($mangaDetalle);
+            
+             // Almacenar los detalles en la sesión
+            session(['manga' => $mangaDetalle->data]);
             // Verifica la estructura de datos
             //dd($mangaDetalle); // Para ver todos los detalles
 
@@ -89,6 +94,45 @@ public function leerCapitulo($id)
 
 return view('leer_capitulo', ['imageUrls' => $imageUrls]);
 }
+
+
+//guarda los id de los mangas en la base de datos
+public function saveMangaId(Request $request)
+{
+    //dd($request->all());
+    $request->validate([
+        'url' => 'required|string',
+        'manga_title' => 'required|string',
+    ]);
+    $userId = Auth::id();
+    
+    
+    // Verifica si el usuario está autenticado
+    if (!$userId) {
+        return response()->json(['success' => false, 'message' => 'Usuario no autenticado'], 401);
+    }
+    
+
+    // Guarda el ID en la base de datos
+    UserLink::create([
+        'user_id' => $userId,
+        'url' => $request->url,
+        'title' => $request->manga_title,
+    ]);
+
+    return response()->json(['success' => true]);
+}
+//trae los id de la base de datos a la vista favoritos
+
+public function listaFavoritos()
+{
+    $userId = Auth::id(); // Obtener el ID del usuario autenticado
+    $userLinks = UserLink::where('user_id', $userId)->get();
+    
+    return response()->json($userLinks); // Retorna los links como JSON
+    
+}
+
 
 
 

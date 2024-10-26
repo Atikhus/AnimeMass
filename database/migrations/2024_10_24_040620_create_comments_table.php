@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->id(); // ID del comentario
             $table->foreignId('user_id')->constrained()->onDelete('cascade'); // ID del usuario
-            $table->string('manga_id')->constrained()->onDelete('cascade'); // ID del manga
+            $table->string('manga_id'); // ID del manga
             $table->text('comment'); // Contenido del comentario
             $table->timestamps(); // Timestamps de creación y actualización
         });
