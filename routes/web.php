@@ -77,4 +77,5 @@ Route::post('/save-manga', [MangaController::class, 'saveMangaId']);
 //traer esos id
 Route::get('/lista-favoritos', [MangaController::class, 'listaFavoritos'])->middleware('auth')->name('lista.favoritos');
 
+Route::delete('/eliminar-manga/{id}', [MangaController::class, 'eliminarManga']);
 

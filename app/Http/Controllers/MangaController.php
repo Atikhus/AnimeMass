@@ -123,16 +123,28 @@ public function saveMangaId(Request $request)
     return response()->json(['success' => true]);
 }
 //trae los id de la base de datos a la vista favoritos
+public function listaFavoritos(){
 
-public function listaFavoritos()
-{
     $userId = Auth::id(); // Obtener el ID del usuario autenticado
     $userLinks = UserLink::where('user_id', $userId)->get();
+    
     
     return response()->json($userLinks); // Retorna los links como JSON
     
 }
 
+
+//eliminar de la lista de favo
+public function eliminarManga($id){
+    $userId = Auth::id();
+    $manga = UserLink::where('id', $id)->where('user_id', $userId)->first();
+    
+    if ($manga) {
+        $manga->delete();
+        return response()->json(['success' => true]);
+    }
+    return response()->json(['success' => false], 404);
+}
 
 
 
