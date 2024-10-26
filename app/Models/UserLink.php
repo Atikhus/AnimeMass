@@ -10,7 +10,7 @@ class UserLink extends Model
     use HasFactory;
 
     // Especifica los atributos que se pueden llenar
-    protected $fillable = ['user_id', 'url'];
+    protected $fillable = ['user_id', 'url', 'title'];
 
     // Define la relación con el modelo User (si es necesario)
     public function user()

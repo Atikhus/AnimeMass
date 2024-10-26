@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     const baseUrl = 'http://127.0.0.1:8000/manga/';
                     linkElement.href = baseUrl + link.url; // Construir la URL completa
                     linkElement.textContent = link.url; // Mostrar la URL como texto
+                    linkElement.setAttribute('data-id', link.url); // Agregar el ID como atributo de datos
                     
                     listItem.appendChild(linkElement); // Añadir el enlace al elemento de la lista
                     listContainer.appendChild(listItem); // Añadir el elemento de la lista al contenedor

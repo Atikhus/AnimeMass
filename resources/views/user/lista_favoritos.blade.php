@@ -15,7 +15,7 @@
             <h1><img src="Assets/add_mark_like_save_label_book_bookmark_icon_219290.ico" alt="">Mi lista</h1>
             <p>favoritos</p>
             
-            
+
             <!-- Contenedor de la lista -->
             <ul id="user-links-list">
     <!-- Aquí se añadirán los enlaces dinámicamente -->

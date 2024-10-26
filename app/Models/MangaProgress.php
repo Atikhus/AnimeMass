@@ -19,6 +19,7 @@ class MangaProgress extends Model
         'user_id',   // El ID del usuario que guarda el progreso
         'manga_id',
         'url',  // El ID del manga
+        'title', //el fokin titulo
         
     ];
 

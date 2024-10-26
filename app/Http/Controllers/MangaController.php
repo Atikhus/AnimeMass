@@ -67,7 +67,9 @@ class MangaController extends Controller
         try {
            // Usamos el servicio para obtener los detalles del manga por su ID
             $mangaDetalle = $this->mangaReaderService->obtenerDetallesMangaPorId($id);
-            //dd($mangaDetalle);
+            
+             // Almacenar los detalles en la sesión
+            session(['manga' => $mangaDetalle->data]);
             // Verifica la estructura de datos
             //dd($mangaDetalle); // Para ver todos los detalles
 
@@ -97,8 +99,10 @@ return view('leer_capitulo', ['imageUrls' => $imageUrls]);
 //guarda los id de los mangas en la base de datos
 public function saveMangaId(Request $request)
 {
+    //dd($request->all());
     $request->validate([
-        'manga_id' => 'required|string',
+        'url' => 'required|string',
+        'manga_title' => 'required|string',
     ]);
     $userId = Auth::id();
     
@@ -107,11 +111,13 @@ public function saveMangaId(Request $request)
     if (!$userId) {
         return response()->json(['success' => false, 'message' => 'Usuario no autenticado'], 401);
     }
+    
 
     // Guarda el ID en la base de datos
     UserLink::create([
         'user_id' => $userId,
-        'url' => $request->manga_id,
+        'url' => $request->url,
+        'title' => $request->manga_title,
     ]);
 
     return response()->json(['success' => true]);
@@ -124,6 +130,7 @@ public function listaFavoritos()
     $userLinks = UserLink::where('user_id', $userId)->get();
     
     return response()->json($userLinks); // Retorna los links como JSON
+    
 }
 
 
