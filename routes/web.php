@@ -74,5 +74,7 @@ Route::get('/lista_favoritos', [ManejoEntradas::class, 'showFavoriteList'])->nam
 
 //ruta para enviar id a la base de datos
 Route::post('/save-manga', [MangaController::class, 'saveMangaId']);
+//traer esos id
+Route::get('/lista-favoritos', [MangaController::class, 'listaFavoritos'])->middleware('auth')->name('lista.favoritos');
 
 

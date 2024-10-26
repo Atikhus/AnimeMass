@@ -94,6 +94,7 @@ return view('leer_capitulo', ['imageUrls' => $imageUrls]);
 }
 
 
+//guarda los id de los mangas en la base de datos
 public function saveMangaId(Request $request)
 {
     $request->validate([
@@ -114,6 +115,15 @@ public function saveMangaId(Request $request)
     ]);
 
     return response()->json(['success' => true]);
+}
+//trae los id de la base de datos a la vista favoritos
+
+public function listaFavoritos()
+{
+    $userId = Auth::id(); // Obtener el ID del usuario autenticado
+    $userLinks = UserLink::where('user_id', $userId)->get();
+    
+    return response()->json($userLinks); // Retorna los links como JSON
 }
 
 

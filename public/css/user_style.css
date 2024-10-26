@@ -4,3 +4,20 @@ body {
     height: 100vh; /* Hace que el fondo cubra toda la altura de la pantalla */
     margin: 0;
 }
+
+.section-list{
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    height: 100vh;
+}
+
+img{
+    height: 48px;
+    width: 5%;
+}
