@@ -4,6 +4,7 @@ namespace App\Services;
 use Illuminate\Support\Facades\Http;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Log;
+
 class MangaReaderService
 {
     private $client;
@@ -29,20 +30,54 @@ class MangaReaderService
     //trae una cantidad de 10 mangas por default
     public function getAllMangas()
 {
-    // Construir la solicitud para obtener una lista de mangas sin necesidad de ID o título específico
     $response = $this->client->get("{$this->baseUrl}/manga", [
         'query' => [
-            'limit' => 10, // Número de mangas que deseas traer
-            'order[createdAt]' => 'desc' // Ordenar por fecha de creación descendente para obtener los más recientes
+            'limit' => 10,
+            'order[createdAt]' => 'desc'
         ]
     ]);
 
-    if ($response->getStatusCode() === 200) {
-        return json_decode($response->getBody()->getContents()); // Retorna los datos de los mangas
+    $mangasData = json_decode($response->getBody()->getContents(), true);
+
+    // Recorre cada manga y agrega la URL del cover
+    foreach ($mangasData['data'] as &$manga) {
+        $coverData = $this->obtenerCoverPorId($manga['id']);
+        $manga['cover_url'] = $coverData['cover_url'];
+    }
+
+    return $mangasData['data']; // Retorna un array simple de datos
+}
+
+
+
+     //aqui vamos a crear un metodo UNICAMENTE para la vista vista_content no usar para otras
+    public function obtenerCoverPorId($id)
+    {
+        try {
+            $response = $this->client->get("{$this->baseUrl}/manga/{$id}", [
+                'query' => ['includes[]' => 'cover_art']
+            ]);
+
+            $mangaData = json_decode($response->getBody()->getContents(), true);
+            
+             // Busca el cover art en los datos de relaciones
+            $coverArt = collect($mangaData['data']['relationships'])->firstWhere('type', 'cover_art');
+            if ($coverArt) {
+                return [
+                    'cover_url' => "https://mangadex.org/covers/{$id}/{$coverArt['attributes']['fileName']}"
+                ];
+            }
+        } catch (\Exception $e) {
+             // Maneja el error y retorna un arreglo con 'cover_url' como null
+            return [
+                'cover_url' => null,
+                'error' => 'Error al obtener el cover del manga: ' . $e->getMessage()
+            ];
+        }
+        
+        return ['cover_url' => null];
     }
     
-    return null; // Retorna null si la solicitud falla
-}
 
 
     public function buscarMangaPorTitulo($titulo)
@@ -191,4 +226,13 @@ public function obtenerDetallesMangaPorId($id)
 
     return null; // Manejar el error adecuadamente
 }
+
+
+    
+
+
+
+
 }
+
+

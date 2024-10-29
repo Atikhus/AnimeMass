@@ -82,3 +82,7 @@ Route::get('/lista-favoritos', [MangaController::class, 'listaFavoritos'])->midd
 
 Route::delete('/eliminar-manga/{id}', [MangaController::class, 'eliminarManga']);
 
+//ruta para mandar los cover de los mangas UNICAMENTE A LA VISTA vista_content
+Route::get('/api/obtenerCoverPorId/{id}', [MangaController::class, 'obtenerCoverPorId']);
+// En routes/web.php
+Route::get('/vista_content', [MangaController::class, 'mostrarMangas'])->name('manga.covers');

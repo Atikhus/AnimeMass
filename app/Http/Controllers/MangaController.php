@@ -20,7 +20,6 @@ class MangaController extends Controller
     // Método para mostrar la vista de sesión iniciada sin resultados
     public function mostrarSesionIniciada()
     {
-        
         $mangas = $this->enviarManga();
         //dd($mangas);
 
@@ -35,7 +34,7 @@ class MangaController extends Controller
             $mangas = $this->mangaReaderService->getAllMangas();
             
             // Retornamos los datos de los mangas
-            return $mangas->data;
+            return $mangas;
         } catch (\Exception $e) {
             // Si hay un error, retornamos un array vacío y guardamos el error en la sesión
             session()->flash('error', 'Error al obtener los detalles del manga: ' . $e->getMessage());
@@ -43,6 +42,15 @@ class MangaController extends Controller
         }
         
     }
+    //funcion unica de vista_content para enviar cover al front
+    public function mostrarMangas()
+{
+    $mangasConCover = $this->mangaReaderService->getAllMangas();
+    return view('vista_content', ['mangas' => $mangasConCover]);
+}
+
+
+
     // Método para buscar manga usando el título proporcionado por el usuario
     public function buscarManga(Request $request)
 {
@@ -99,6 +107,41 @@ class MangaController extends Controller
            // En caso de error, volvemos a la página anterior con un mensaje de error
         return back()->withErrors(['error' => 'Error al obtener los detalles del manga: ' . $e->getMessage()]);
         }
+}
+
+     //aqui vamos a crear un metodo UNICAMENTE para la vista vista_content no usar para otras
+    public function obtenerCoverPorId($mangas)
+{
+    try {
+        $mangasConCover = [];
+
+        // Iterar sobre cada manga en la respuesta
+        foreach ($mangas->data as $manga) {
+            $id = $manga->id;
+
+            // Buscar el cover_art en las relaciones
+            $coverArt = collect($manga->relationships)->where('type', 'cover_art')->first();
+
+            // Si encontramos un cover, construimos la URL
+            $coverUrl = $coverArt ? "https://uploads.mangadex.org/covers/{$id}/{$coverArt->attributes->fileName}" : null;
+
+            // Agregar el manga y su portada a la colección
+            $mangasConCover[] = [
+                'id' => $id,
+                'title' => $manga->attributes->title->en ?? 'Título no disponible',
+                'cover_url' => $coverUrl
+            ];
+        }
+
+        // Retornar la colección de mangas con sus portadas
+        return response()->json(['success' => true, 'mangas' => $mangasConCover]);
+
+    } catch (\Exception $e) {
+        return response()->json([
+            'success' => false,
+            'error' => 'Error al obtener el cover del manga: ' . $e->getMessage()
+        ]);
+    }
 }
 
     

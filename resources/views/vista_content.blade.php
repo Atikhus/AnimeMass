@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sesión Iniciada</title>
-    <link rel="icon" href="Assets/logo.png" type="image/png">
+    <link rel="icon" href="{{ asset('Assets/logo.png') }}" type="image/png">
     <link rel="stylesheet" href="{{ asset('css/SesionStyle.css') }}">    
 </head>
 <body>
 <!-- Header -->
 <section class="contenedor-nav">
     <div class="logo">
-        <!-- Logo para ir atrás -->
         <a class="logo-back" href="{{ route('index') }}">
             <img src="{{ asset('Assets/4043233-anime-away-face-no-nobody-spirited_113254.ico') }}" alt="Logo">
         </a>
@@ -22,7 +21,7 @@
             <li><a href="#categorias">Categorías</a></li>
             <li><a class="dasboar-color" href="{{ route('control_panel') }}">Dashboard</a></li>
             @auth
-                <!-- Si el usuario ha iniciado sesión, no mostramos los botones de inicio de sesión -->
+                <!-- Botones para usuarios autenticados -->
             @else
                 <li><a href="{{ route('sign') }}">Regístrate fácil</a></li>
                 <li><a href="{{ route('login') }}">Iniciar Sesión</a></li>
@@ -61,16 +60,22 @@
         <button type="submit">Buscar</button>
     </form>
 
-    <!-- Mostrar resultados de la búsqueda solo si hay datos -->
+    <!-- Mostrar resultados de la búsqueda -->
     <div class="manga-grid">
         @if(isset($mangas) && count($mangas) > 0)
             @foreach($mangas as $manga)
                 <div class="manga-item">
                     <h2>
-                        <a href="{{ route('manga.detalle', $manga->id) }}">
-                            {{ $manga->attributes->title->en ?? 'Título no disponible' }}
+                        <a href="{{ route('manga.detalle', $manga['id']) }}">
+                            {{ $manga['attributes']['title']['en'] ?? 'Título no disponible' }}
                         </a>
                     </h2>
+                    <!-- Mostrar la imagen de portada del manga -->
+                    @if(isset($manga['cover_url']))
+                        <img src="{{ $manga['cover_url'] }}" alt="Cover de {{ $manga['attributes']['title']['en'] ?? 'Manga' }}" width="200">
+                    @else
+                        <p>No cover disponible</p>
+                    @endif
                 </div>
             @endforeach
         @else
