@@ -7,8 +7,6 @@
     <title>{{ $manga->attributes->title->en }}</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="icon" href="/Assets/logo.png">
-    
-
     @livewireStyles
 </head>
 <body>
@@ -16,9 +14,15 @@
         <img src="/Assets/logo.png" id="banner-image" alt="Banner Manga">
     </div>
 
+
+    <!--logo de ir atras-->
+    <a  class="logo-back"  href="{{ route('sesion_iniciada') }}"><img   src="{{ asset('Assets/4043233-anime-away-face-no-nobody-spirited_113254.ico') }}" alt=""></a>
+    
+    <!--contenedor de las imagenes-->
     <div class="container">
         <h1>{{ $manga->attributes->title->en }}</h1>
 
+        <!--trae los covers del backend-->
         @php
         $coverArt = collect($manga->relationships)
             ->where("type", "cover_art")
@@ -35,14 +39,18 @@
         
         <button class="btn"><a href="https://mangadex.org/manga/{{ $manga->id }}">Leer Manga</a></button>
         <div>
-            <!--seccion espcial para enviar los datos de la url de esta pagina con su id para la base de datos -->
-            
-            <button id="saveMangaButton" 
-                    data-manga-id="{{ $manga->id }}" 
-                    data-manga-title="{{ $manga->attributes->title->en }}">
-                Agregar a lista de favoritos
-            </button>
 
+
+            <!--seccion espcial para enviar los datos de la url de esta pagina con su id para la base de datos -->
+            <h1><img src="/Assets/add_mark_like_save_label_book_bookmark_icon_219290.ico" alt="/Assets/logo.png"></h1>
+            <button  id="saveMangaButton"        
+            data-manga-id="{{ $manga->id }}" 
+            data-manga-title="{{ $manga->attributes->title->en }}">
+            
+                Agregar a lista de favoritos
+                
+            </button>
+            
 
         
         <script>
@@ -89,10 +97,8 @@
              */
         </script>
 
-        <!-- Aquí es donde integrarás el componente de Livewire -->
+        <!-- Aquí es donde integrarás el componente de Livewire  para mostrar los comentarios-->
         @livewire('comment-component', ['mangaId' => $manga->id])
-        
-
     </div>
     @livewireScripts
     <script src="{{ asset('js/detalles.js') }}"></script>

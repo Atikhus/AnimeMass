@@ -1,33 +1,80 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Realiza una solicitud fetch a la ruta de listaFavoritos
     fetch('/lista-favoritos')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json(); // Asumiendo que retornas JSON
-        })
+        .then(response => response.json())
         .then(data => {
-            console.log(data); // Aquí tendrás los datos de $userLinks
-            const listContainer = document.querySelector('#user-links-list');
+            const listContainer = document.querySelector('#user-s-list'); // Asegúrate de usar el ID correcto
             listContainer.innerHTML = ''; // Limpiar contenido previo
+
             if (data.length === 0) {
                 listContainer.innerHTML = '<li>No tienes mangas favoritos.</li>';
             } else {
                 data.forEach(link => {
                     const listItem = document.createElement('li');
-                    const linkElement = document.createElement('a'); // Crear un nuevo enlace
-                    
-                    // Concatenar la URL base con el ID del manga
+                    listItem.classList.add('manga-item'); // Clase para estilizar el contenedor
+                
+                    // Crear un contenedor para el contenido
+                    const boxContainer = document.createElement('div');
+                    boxContainer.classList.add('manga-box'); // Clase para la caja
+                
+                    // Configura el título
+                    const titleElement = document.createElement('span');
+                    titleElement.textContent = link.title;
+                
+                    // Configura el enlace
                     const baseUrl = 'http://127.0.0.1:8000/manga/';
-                    linkElement.href = baseUrl + link.url; // Construir la URL completa
-                    linkElement.textContent = link.url; // Mostrar la URL como texto
-                    linkElement.setAttribute('data-id', link.url); // Agregar el ID como atributo de datos
+                    const linkElement = document.createElement('a');
+                    linkElement.href = baseUrl + link.url;
+                    linkElement.textContent = "Leer";
                     
-                    listItem.appendChild(linkElement); // Añadir el enlace al elemento de la lista
-                    listContainer.appendChild(listItem); // Añadir el elemento de la lista al contenedor
+                    // Configura el botón de eliminar
+                    const deleteButton = document.createElement('button');
+                    deleteButton.textContent = 'Eliminar de mi lista';
+                    deleteButton.classList.add('delete-button');
+                    deleteButton.setAttribute('data-id', link.id);
+                
+                    // Añadir elementos al boxContainer
+                    boxContainer.appendChild(titleElement);
+                    boxContainer.appendChild(linkElement);
+                    boxContainer.appendChild(deleteButton);
+                    
+                    // Añadir el boxContainer al listItem
+                    listItem.appendChild(boxContainer);
+                    listContainer.appendChild(listItem); // Añadir listItem al contenedor
                 });
+                
             }
+
+            // Manejador de eventos para los botones de eliminar
+            listContainer.addEventListener('click', function(event) {
+                if (event.target.classList.contains('delete-button')) {
+                    const mangaId = event.target.getAttribute('data-id'); // Obtenemos el id del manga
+                    
+                    // Verifica el token CSRF
+                    const csrfToken = document.querySelector('meta[name="csrf-token"]');
+                    if (csrfToken) {
+                        // Realizamos una solicitud fetch para eliminar el manga
+                        fetch(`/eliminar-manga/${mangaId}`, {
+                            method: 'DELETE', // Usamos DELETE para eliminar
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': csrfToken.getAttribute('content') // Token CSRF para seguridad
+                            }
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                event.target.closest('li').remove(); // Removemos el elemento de la lista
+                                console.log('Manga eliminado de favoritos');
+                            } else {
+                                console.error('Error al eliminar el manga');
+                            }
+                        })
+                        .catch(error => console.error('Hubo un error en la solicitud:', error));
+                    } else {
+                        console.error('Token CSRF no encontrado');
+                    }
+                }
+            });
         })
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);

@@ -27,8 +27,6 @@ Route::get('/logout', [ManejoEntradas::class, 'logout'])->name('logout');
 
 
 //rutas de permisos
-
-
 Route::middleware('auth')->group(function(){
     Route::get('/mangaka_mode',function(){
         return view('mangaka.mangaka_panel');
@@ -45,6 +43,11 @@ Route::get('/control_panel', [ManejoEntradas::class, 'showForm'])->name('control
 
 // Ruta para mostrar la vista de sesión iniciada
 Route::get('/sesion_iniciada', [ManejoEntradas::class, 'mostrarSesionIniciada'])->name('sesion_iniciada')->middleware('auth');
+//ruta para mostrar sesion iniciada con contenido por default
+// Ruta para mostrar la vista de sesión iniciada
+Route::get('/sesion.iniciada', [MangaController::class, 'mostrarSesionIniciada'])->name('sesion.iniciada')->middleware('auth');
+
+
 
 // Rutas para la búsqueda de mangas en la sesión iniciada
 Route::post('/buscar_manga', [MangaController::class, 'buscarManga'])->name('buscar.manga');
@@ -77,4 +80,5 @@ Route::post('/save-manga', [MangaController::class, 'saveMangaId']);
 //traer esos id
 Route::get('/lista-favoritos', [MangaController::class, 'listaFavoritos'])->middleware('auth')->name('lista.favoritos');
 
+Route::delete('/eliminar-manga/{id}', [MangaController::class, 'eliminarManga']);
 

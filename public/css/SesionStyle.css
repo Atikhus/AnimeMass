@@ -10,23 +10,59 @@
 
 body {
     background: url(../Assets/animesher.com_stars-gif-aesthetic-anime-1916094.gif) no-repeat center center/cover;
-    font-family: Arial, sans-serif;
+    font-family: "Roboto", sans-serif;
     background-size: cover; /* Asegura que la imagen se extienda completamente */
     height: 100vh; /* Hace que el fondo cubra toda la altura de la pantalla */
     margin: 0;
 }
+.dasboar-color{
+    color: white;
+}
+
+
 
 /* Estilo general para el contenedor */
+.contenedor-nav {
+    width: 100%;  
+    position: fixed;
+    top: 0;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.737);
+    z-index: 1000;
+    justify-content: space-around;
+    align-items: center;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.756); /* Añade sombra para distinguir el nav */
+}
+.user-name{
+    color: white;
+}
+.contenedor-nav ul{
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+.Bienvenido{
+    padding: 20px;
+        font-size: 1.5rem;
+        color: aqua;
+    
+}
+
+
+/* Aplica un margen superior para evitar que el contenido se superponga con el nav */
 .container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 50px;
+    margin-top: 80px; /* Ajusta este valor según la altura de tu nav */
     text-align: center;
     background-color: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(10px);
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.693);
 }
+
 
 /* Estilo para los encabezados */
 h1 {

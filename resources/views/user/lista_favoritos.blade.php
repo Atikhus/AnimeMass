@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="Assets/logo.png" type="Assets/jpg">
@@ -17,14 +18,19 @@
             
 
             <!-- Contenedor de la lista -->
-            <ul id="user-links-list">
-    <!-- Aquí se añadirán los enlaces dinámicamente -->
-</ul>
+            <div class="show-list" >
+            
+                </div>
+                <ul  id="user-s-list">
+        <!-- Aquí se añadirán los enlaces dinámicamente -->
+            </ul>
 
 
             <!-- Incluye el script externo -->
             <script src="{{ asset('js/list_favorite.js') }}"></script>
         </div>
+        
+        <button class="back-button" ><a href="/control_panel">ir atras</a></button>
     </section>
 </body>
 </html>
