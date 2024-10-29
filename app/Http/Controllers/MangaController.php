@@ -20,10 +20,29 @@ class MangaController extends Controller
     // Método para mostrar la vista de sesión iniciada sin resultados
     public function mostrarSesionIniciada()
     {
-        $mangas = null; // O puedes usar []
-        return view('sesion_iniciada', compact('mangas'));
+        
+        $mangas = $this->enviarManga();
+        //dd($mangas);
+
+        return view('vista_content', compact('mangas'));
     }
 
+    //este metodo enviara contenido por default al fronend
+    public function enviarManga(){
+        
+        try {
+            // Usamos el servicio para obtener los mangas default
+            $mangas = $this->mangaReaderService->getAllMangas();
+            
+            // Retornamos los datos de los mangas
+            return $mangas->data;
+        } catch (\Exception $e) {
+            // Si hay un error, retornamos un array vacío y guardamos el error en la sesión
+            session()->flash('error', 'Error al obtener los detalles del manga: ' . $e->getMessage());
+            return [];
+        }
+        
+    }
     // Método para buscar manga usando el título proporcionado por el usuario
     public function buscarManga(Request $request)
 {
@@ -59,7 +78,6 @@ class MangaController extends Controller
     }
 }
 
-    
 
    // Método para obtener los detalles de un manga específico
     public function detallesManga($id)

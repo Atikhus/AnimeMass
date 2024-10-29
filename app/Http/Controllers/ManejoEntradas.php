@@ -26,15 +26,17 @@ class ManejoEntradas extends Controller
         return view('control_panel');
     }
 
-    public function mostrarSesionIniciada()
-{
-    return view('sesion_iniciada'); // Asegúrate de que el nombre de la vista sea correcto
-}
-
 public function showIndex()
 {
     return view('index');
 }
+
+    
+public function mostrarSesionIniciada()
+{
+    return view('sesion_iniciada'); // Asegúrate de que el nombre de la vista sea correcto
+}
+
 
     public function login(Request $request)
     {

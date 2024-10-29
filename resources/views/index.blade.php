@@ -75,7 +75,7 @@
                 con historias que van desde los clásicos del manga hasta las últimas novedades.
 
                 ¡Navega ahora y encuentra el manga perfecto para ti!</p>
-            <a href="{{route('sesion_iniciada')}}">Descubre más ➟</a>
+            <a href="{{route('sesion.iniciada')}}">Descubre más ➟</a>
         </section>
     </header>
     <section id="descubre" class="anime-section">
@@ -185,10 +185,10 @@
                 Presta atención y no te pierdas la oportunidad de registrarte!!. 
             </p>
             <ul>
-                <li>Leo vel orci porta etiam sed neque etiam</li>
-                <li>Magna tempus suspendisse malesuada consequat</li>
-                <li>Est placerat sed in egestas erat aliquam nulla</li>
-                <li>Ipsum lorem dolor sed lectus vestibulum blandit</li>
+                <li>porfavor ve a la parte superior esta ubicado el boton de Registrate facil ve ahi</li>
+                <li>te llevara al formulario, completalo</li>
+                <li>luego inicia sesion con tus datos </li>
+                <li>y disfruta de todo lo que tiene AnimeMas para ofrecerte!</li>
             </ul>
     </section>
 
@@ -200,6 +200,9 @@
             <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
         </div>
         <p>&copy; 2024 AnimeMas. Todos los derechos reservados.</p>
+        
+    <p>Este sitio utiliza la API de MangaDex para obtener información de manga. Gracias a <a href="https://mangadex.org/" target="_blank">MangaDex</a> por proporcionar el acceso a su contenido.</p>
+    <p><em>El contenido y las imágenes son propiedad de sus respectivos creadores y editores.</em></p>
     </footer>
 
 </body>

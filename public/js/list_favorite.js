@@ -10,30 +10,38 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
                 data.forEach(link => {
                     const listItem = document.createElement('li');
-                    const titleElement = document.createElement('span');
-                    const linkElement = document.createElement('a');
-                    const deleteButton = document.createElement('button'); // Botón de eliminar
-                    
+                    listItem.classList.add('manga-item'); // Clase para estilizar el contenedor
+                
+                    // Crear un contenedor para el contenido
+                    const boxContainer = document.createElement('div');
+                    boxContainer.classList.add('manga-box'); // Clase para la caja
+                
                     // Configura el título
+                    const titleElement = document.createElement('span');
                     titleElement.textContent = link.title;
-                    
+                
                     // Configura el enlace
                     const baseUrl = 'http://127.0.0.1:8000/manga/';
+                    const linkElement = document.createElement('a');
                     linkElement.href = baseUrl + link.url;
                     linkElement.textContent = "Leer";
                     
                     // Configura el botón de eliminar
+                    const deleteButton = document.createElement('button');
                     deleteButton.textContent = 'Eliminar de mi lista';
-                    deleteButton.classList.add('delete-button'); // Cambié a 'delete-button' para ser consistente
-                    deleteButton.setAttribute('data-id', link.id); // Aquí asignas el id del manga
+                    deleteButton.classList.add('delete-button');
+                    deleteButton.setAttribute('data-id', link.id);
+                
+                    // Añadir elementos al boxContainer
+                    boxContainer.appendChild(titleElement);
+                    boxContainer.appendChild(linkElement);
+                    boxContainer.appendChild(deleteButton);
                     
-                    // Añadir elementos al listItem
-                    listItem.appendChild(titleElement);
-                    listItem.appendChild(document.createElement('br'));
-                    listItem.appendChild(linkElement);
-                    listItem.appendChild(deleteButton);
+                    // Añadir el boxContainer al listItem
+                    listItem.appendChild(boxContainer);
                     listContainer.appendChild(listItem); // Añadir listItem al contenedor
                 });
+                
             }
 
             // Manejador de eventos para los botones de eliminar

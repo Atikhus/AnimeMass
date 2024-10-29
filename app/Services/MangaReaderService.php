@@ -22,9 +22,28 @@ class MangaReaderService
         if ($response->getStatusCode() === 200) {
             return json_decode($response->getBody()->getContents()); // Retorna los datos de los mangas
         }
-
+        
         return null; // Retorna null si la solicitud falla
     }
+
+    //trae una cantidad de 10 mangas por default
+    public function getAllMangas()
+{
+    // Construir la solicitud para obtener una lista de mangas sin necesidad de ID o título específico
+    $response = $this->client->get("{$this->baseUrl}/manga", [
+        'query' => [
+            'limit' => 10, // Número de mangas que deseas traer
+            'order[createdAt]' => 'desc' // Ordenar por fecha de creación descendente para obtener los más recientes
+        ]
+    ]);
+
+    if ($response->getStatusCode() === 200) {
+        return json_decode($response->getBody()->getContents()); // Retorna los datos de los mangas
+    }
+    
+    return null; // Retorna null si la solicitud falla
+}
+
 
     public function buscarMangaPorTitulo($titulo)
 {

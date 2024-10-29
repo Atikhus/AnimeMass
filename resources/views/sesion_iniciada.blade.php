@@ -8,7 +8,46 @@
     <link rel="stylesheet" href="{{ asset('css/SesionStyle.css') }}">    
 </head>
 <body>
+<!--header -->
+<section class="contenedor-nav">
+            <div class="logo">
+                <!--logo de ir atras-->
+<a class="logo-back"  href="{{ route('index') }}"><img   src="{{ asset('Assets/4043233-anime-away-face-no-nobody-spirited_113254.ico') }}" alt=""></a>
+                <span class="Bienvenido" >AnimeMas</span>
+            </div>
+            
+            <nav>
+                <ul>
+                    
+                    <li><a href="#categorias">Categorías</a></li>
+                    <li><a class="dasboar-color" href="{{ route('control_panel') }}">Dashboard</a></li>
+                    
+                    @auth
+                        <!-- Si el usuario ha iniciado sesión, no mostramos los botones de inicio de sesión -->
+                    @else
+                        <li><a href="{{ route('sign') }}">Registrate fácil</a></li>
+                        <li><a href="{{ route('login') }}">Iniciar Sesión</a></li>
+                    @endauth
+                </ul>
+            </nav>
+            <div class="sesionActiva">
+                @auth
+                    <!-- Mostrar el logo y el mensaje de bienvenida si el usuario ha iniciado sesión -->
+                    
+                    <img src="{{ asset('Assets/dandy.ico') }}" alt="Logo de usuario autenticado">
+                    <span class="user-name" >Bienvenido, {{ Auth::user()->name}}</span>
+                    
+
+                @else
+                    <!-- Mostrar espacio vacío si no ha iniciado sesión -->
+                    <img src="{{ asset('Assets/dead.ico')}}" alt="sesion sin inciar">
+                @endauth
+            </div>
+        </section>
+
 <div class="container">
+    
+    
     <h1>Bienvenido a AnimeMas</h1>
     <p>¡Has iniciado sesión correctamente!</p>
 
@@ -70,5 +109,6 @@
     </script>
 
 </div>
+
 </body>
 </html>

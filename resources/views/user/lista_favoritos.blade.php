@@ -20,8 +20,6 @@
             <!-- Contenedor de la lista -->
             <div class="show-list" >
             
-                
-                
                 </div>
                 <ul  id="user-s-list">
         <!-- Aquí se añadirán los enlaces dinámicamente -->
@@ -31,6 +29,8 @@
             <!-- Incluye el script externo -->
             <script src="{{ asset('js/list_favorite.js') }}"></script>
         </div>
+        
+        <button class="back-button" ><a href="/control_panel">ir atras</a></button>
     </section>
 </body>
 </html>

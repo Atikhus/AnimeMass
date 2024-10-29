@@ -7,8 +7,6 @@
     <title>{{ $manga->attributes->title->en }}</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="icon" href="/Assets/logo.png">
-    
-
     @livewireStyles
 </head>
 <body>
@@ -16,7 +14,11 @@
         <img src="/Assets/logo.png" id="banner-image" alt="Banner Manga">
     </div>
 
-        <!--contenedor de las imagenes-->
+
+    <!--logo de ir atras-->
+    <a  class="logo-back"  href="{{ route('sesion_iniciada') }}"><img   src="{{ asset('Assets/4043233-anime-away-face-no-nobody-spirited_113254.ico') }}" alt=""></a>
+    
+    <!--contenedor de las imagenes-->
     <div class="container">
         <h1>{{ $manga->attributes->title->en }}</h1>
 
