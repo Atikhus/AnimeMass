@@ -40,7 +40,7 @@
         <label for="recordar">
             <input type="checkbox" id="recordar" name="recordar"> Recordarme
         </label>
-        <a href="">¿Olvidaste tu contraseña?</a>
+        <a href="forgot-password">¿Olvidaste tu contraseña?</a>
     </div>
     <input class="btn" type="submit" value="Iniciar">
 </form>

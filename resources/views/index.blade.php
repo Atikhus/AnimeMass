@@ -49,7 +49,7 @@
                         <!-- Si el usuario ha iniciado sesión, no mostramos los botones de inicio de sesión -->
                     @else
                         <li><a href="{{ route('sign') }}">Registrate fácil</a></li>
-                        <li><a href="{{ route('login') }}">Iniciar Sesión</a></li>
+                        <li><a href="{{ route('login-me') }}">Iniciar Sesión</a></li>
                     @endauth
                 </ul>
             </nav>
