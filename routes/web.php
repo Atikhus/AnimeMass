@@ -47,11 +47,16 @@ Route::get('/sesion_iniciada', [ManejoEntradas::class, 'mostrarSesionIniciada'])
 // Ruta para mostrar la vista de sesión iniciada
 Route::get('/sesion.iniciada', [MangaController::class, 'mostrarSesionIniciada'])->name('sesion.iniciada')->middleware('auth');
 
+//ruta pora mostrar las categorias de manga
+Route::middleware(['auth'])->group(function () {
+Route::get('/categories/filter',[ManejoEntradas::class,'showCategories'])->name('categories');
 
+});
 
+Route::middleware(['auth'])->group(function () {
 // Rutas para la búsqueda de mangas en la sesión iniciada
 Route::post('/buscar_manga', [MangaController::class, 'buscarManga'])->name('buscar.manga');
-
+});
 // Ruta para obtener las series de Komga
 Route::get('/komga-series', [KomgaController::class, 'getSeries'])->name('komga.series');
 
@@ -67,8 +72,8 @@ Route::get('/manga/leer/{id}', [MangaController::class, 'leerCapitulo'])->name('
 
 //rutas para los comentarios
 
-Route::get('/comments/{mangaId}', [CommentController::class, 'index']);
-Route::post('/comments', [CommentController::class, 'store']);
+Route::get('/comments/{mangaId}', [CommentController::class, 'index'])->middleware('auth');
+Route::post('/comments', [CommentController::class, 'store'])->middleware('auth');
 
 //mostrar la vista del usuario con sus atributos
 Route::get('/usuario', [ManejoEntradas::class, 'showProfile'])->name('usuario');
@@ -82,3 +87,7 @@ Route::get('/lista-favoritos', [MangaController::class, 'listaFavoritos'])->midd
 
 Route::delete('/eliminar-manga/{id}', [MangaController::class, 'eliminarManga']);
 
+//ruta para mandar los cover de los mangas UNICAMENTE A LA VISTA vista_content
+Route::get('/api/obtenerCoverPorId/{id}', [MangaController::class, 'obtenerCoverPorId']);
+// En routes/web.php
+Route::get('/vista_content', [MangaController::class, 'mostrarMangas'])->name('manga.covers');

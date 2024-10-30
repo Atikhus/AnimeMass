@@ -35,8 +35,11 @@
             <p>No hay portada disponible.</p>
         @endif
         
-        <p><strong>Descripción:</strong> {{ $manga->attributes->description->en }}</p>
-        
+        <p><strong>Descripción:</strong> {{ $manga->attributes->description->en ?? $manga->attributes->description->ja ?? 'Descripción no disponible' }}</p>
+        <p><strong>genero:</strong> {{ $manga->attributes->publicationDemographic }}</p>
+        <p><strong>año:</strong> {{ $manga->attributes->year }}</p>
+        <p><strong>estado:</strong> {{ $manga->attributes->status }}</p>
+        <p><strong>emicion:</strong> {{ $manga->attributes->state }}</p>
         <button class="btn"><a href="https://mangadex.org/manga/{{ $manga->id }}">Leer Manga</a></button>
         <div>
 

@@ -96,4 +96,62 @@ public function mostrarSesionIniciada()
         return view('user.lista_favoritos');
     }
 
+    public function showCategories(Request $request){
+        $genreNun = $request->input('genre');
+        $genreName = '';
+        switch ($genreNun) {
+            case '1':
+                // Lógica específica para shonen
+                $genreName = 'shonen';
+                break;
+
+            case '2':
+                // Lógica específica para seinen
+                $genreName = 'shojo';
+                break;
+
+            case '3':
+                // Lógica específica para shojo
+                $genreName = 'seinen';
+                break;
+
+            case '4':
+                $genreName = 'novela grafica';
+                break;
+
+            case '5':
+                $genreName = 'boy love';
+                break;
+
+            case '6':
+                $genreName = 'ecchi';
+                break;
+                
+            case '7':
+                $genreName = 'spokon';
+                break;
+                
+            case '8':
+                $genreName = 'comics';
+
+                break;
+        
+            case '9':
+                $genreName = 'yuri';
+                break;
+
+            case '10':
+                $genreName = 'romcom';
+            break;
+
+            default:
+                // Caso para géneros no especificados
+                $genreName = "Género no encontrado"; 
+                break;
+        }
+
+        //dd($genreName);
+        return view('categories',compact('genreName'));
+    }
+
 }

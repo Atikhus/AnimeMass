@@ -83,6 +83,8 @@
         <p>¡Disfruta aquí de algunos de nuestros títulos más populares!</p>
         <div class="anime-grid">
             <div class="anime-card">
+            
+
                 <img src="Assets/descrube1.webp" alt="Soul Eater">
                 <h2>Dungeon ni Hisomu Yandere</h2>
                 <p>Sub | Dob</p>
@@ -112,64 +114,94 @@
     <section id="categorias" class="category-section">
         <h1>¿Qué te gustaría leer hoy?</h1>
         <div class="category-grid">
+            
             <div class="category-card">
+            <a href="{{ route('categories', ['genre' => 1]) }}">
+
                 <img src="Assets/shunen.webp" alt="Shonen">
                 <div class="category-overlay">
                     <span>Shonen</span>
+            </a>
                 </div>
             </div>
             <div class="category-card">
-                <img src="Assets/shojo.jpg" alt="Shojo">
-                <div class="category-overlay">
-                    <span>Shojo</span>
+            <a href="{{ route('categories', ['genre' => 2]) }}">
+            <img src="Assets/shojo.jpg" alt="Shojo">
+                    <div class="category-overlay">
+                        <span>Shojo</span>
+            </a>
+
+                
                 </div>
             </div>
             <div class="category-card">
+            <a href="{{ route('categories', ['genre' => 3]) }}">
                 <img src="Assets/seinen.jpg" alt="Seinen">
                 <div class="category-overlay">
                     <span>Seinen</span>
+            </a>
+
                 </div>
             </div>
             <div class="category-card">
+            <a href="{{ route('categories', ['genre' => 4]) }}">
                 <img src="Assets/novelagrafica.jpg" alt="Novela Gráfica">
                 <div class="category-overlay">
+            </a>
+
                     <span>Novela Gráfica</span>
                 </div>
             </div>
             <div class="category-card">
+            <a href="{{ route('categories', ['genre' => 5]) }}">Boy love</a>
                 <img src="Assets/bl.jpg" alt="BL">
                 <div class="category-overlay">
-                    <span>BL</span>
+                    <span>Boy love</span>
                 </div>
             </div>
             <div class="category-card">
+            <a href="{{ route('categories', ['genre' => 6]) }}">
                 <img src="Assets/echi.jpg" alt="Ecchi">
                 <div class="category-overlay">
                     <span>Ecchi</span>
+            </a>
+
                 </div>
             </div>
             <div class="category-card">
+            <a href="{{ route('categories', ['genre' => 7]) }}">
                 <img src="Assetsspokon.jpg" alt="Spokon">
                 <div class="category-overlay">
                     <span>Spokon</span>
+            </a>
+
                 </div>
             </div>
             <div class="category-card">
+            <a href="{{ route('categories', ['genre' => 8]) }}">
                 <img src="Assets/superheroes.jpg" alt="Superhéroes">
                 <div class="category-overlay">
                     <span>Superhéroes</span>
+            </a>
+
                 </div>
             </div>
             <div class="category-card">
+            <a href="{{ route('categories', ['genre' => 9]) }}">
                 <img src="Assets/yuri.jpg" alt="Yuri">
                 <div class="category-overlay">
                     <span>Yuri</span>
+            </a>
+
                 </div>
             </div>
             <div class="category-card">
+            <a href="{{ route('categories', ['genre' => 10]) }}">
                 <img src="Assets/romcom.jpg" alt="Romcom">
                 <div class="category-overlay">
                     <span>Romcom</span>
+            </a>
+
                 </div>
             </div>
         </div>
