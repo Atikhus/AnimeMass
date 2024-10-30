@@ -49,7 +49,7 @@
                         <!-- Si el usuario ha iniciado sesión, no mostramos los botones de inicio de sesión -->
                     @else
                         <li><a href="{{ route('sign') }}">Registrate fácil</a></li>
-                        <li><a href="{{ route('login') }}">Iniciar Sesión</a></li>
+                        <li><a href="{{ route('login-me') }}">Iniciar Sesión</a></li>
                     @endauth
                 </ul>
             </nav>
@@ -147,16 +147,17 @@
             <a href="{{ route('categories', ['genre' => 4]) }}">
                 <img src="Assets/novelagrafica.jpg" alt="Novela Gráfica">
                 <div class="category-overlay">
+                    <span>Novela Gráfica</span>
             </a>
 
-                    <span>Novela Gráfica</span>
                 </div>
             </div>
             <div class="category-card">
-            <a href="{{ route('categories', ['genre' => 5]) }}">Boy love</a>
+            <a href="{{ route('categories', ['genre' => 5]) }}">
                 <img src="Assets/bl.jpg" alt="BL">
                 <div class="category-overlay">
                     <span>Boy love</span>
+            </a>
                 </div>
             </div>
             <div class="category-card">
@@ -170,7 +171,7 @@
             </div>
             <div class="category-card">
             <a href="{{ route('categories', ['genre' => 7]) }}">
-                <img src="Assetsspokon.jpg" alt="Spokon">
+                <img src="Assets/spokon.jpg" alt="Spokon">
                 <div class="category-overlay">
                     <span>Spokon</span>
             </a>

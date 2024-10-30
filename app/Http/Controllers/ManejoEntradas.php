@@ -13,7 +13,7 @@ class ManejoEntradas extends Controller
 {
     public function showLoginForm()
     {
-        return view('login');
+        return view('login-me');
     }
 
     public function showSignForm()
@@ -116,7 +116,7 @@ public function mostrarSesionIniciada()
                 break;
 
             case '4':
-                $genreName = 'novela grafica';
+                $genreName = 'graphic novel';
                 break;
 
             case '5':
@@ -128,7 +128,7 @@ public function mostrarSesionIniciada()
                 break;
                 
             case '7':
-                $genreName = 'spokon';
+                $genreName = 'sport';
                 break;
                 
             case '8':

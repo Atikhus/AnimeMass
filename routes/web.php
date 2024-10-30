@@ -16,8 +16,8 @@ Route::get('/', function () {
 //solo para mostrar el index despues de que inicio sesion
 Route::get('/index', [ManejoEntradas::class, 'showIndex'])->name('index');
 // Rutas para inicio de sesión
-Route::get('/login', [ManejoEntradas::class, 'showLoginForm'])->name('login');
-Route::post('/login', [ManejoEntradas::class, 'login'])->name('login.process');
+Route::get('/login-me', [ManejoEntradas::class, 'showLoginForm'])->name('login-me');
+Route::post('/login-me', [ManejoEntradas::class, 'login'])->name('login.process');
 
 //cerrar sesion desde el dashboar perfil
 
@@ -27,7 +27,7 @@ Route::get('/logout', [ManejoEntradas::class, 'logout'])->name('logout');
 
 
 //rutas de permisos
-Route::middleware('auth')->group(function(){
+Route::middleware('login-me')->group(function(){
     Route::get('/mangaka_mode',function(){
         return view('mangaka.mangaka_panel');
     });
@@ -72,7 +72,7 @@ Route::get('/manga/leer/{id}', [MangaController::class, 'leerCapitulo'])->name('
 
 //rutas para los comentarios
 
-Route::get('/comments/{mangaId}', [CommentController::class, 'index'])->middleware('auth');
+Route::get('/comments/{mangaId}', [CommentController::class, 'index'])->middleware('login-me');
 Route::post('/comments', [CommentController::class, 'store'])->middleware('auth');
 
 //mostrar la vista del usuario con sus atributos
@@ -91,3 +91,22 @@ Route::delete('/eliminar-manga/{id}', [MangaController::class, 'eliminarManga'])
 Route::get('/api/obtenerCoverPorId/{id}', [MangaController::class, 'obtenerCoverPorId']);
 // En routes/web.php
 Route::get('/vista_content', [MangaController::class, 'mostrarMangas'])->name('manga.covers');
+
+use App\Http\Controllers\ProfileController;
+
+
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
