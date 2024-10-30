@@ -53,7 +53,7 @@ Route::get('/categories/filter',[ManejoEntradas::class,'showCategories'])->name(
 
 });
 
-Route::middleware(['login-me'])->group(function () {
+Route::middleware(['auth'])->group(function () {
 // Rutas para la búsqueda de mangas en la sesión iniciada
 Route::post('/buscar_manga', [MangaController::class, 'buscarManga'])->name('buscar.manga');
 });
@@ -83,7 +83,7 @@ Route::get('/lista_favoritos', [ManejoEntradas::class, 'showFavoriteList'])->nam
 //ruta para enviar id a la base de datos
 Route::post('/save-manga', [MangaController::class, 'saveMangaId']);
 //traer esos id
-Route::get('/lista-favoritos', [MangaController::class, 'listaFavoritos'])->middleware('login-me')->name('lista.favoritos');
+Route::get('/lista-favoritos', [MangaController::class, 'listaFavoritos'])->middleware('auth')->name('lista.favoritos');
 
 Route::delete('/eliminar-manga/{id}', [MangaController::class, 'eliminarManga']);
 

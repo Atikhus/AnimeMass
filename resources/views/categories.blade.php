@@ -69,6 +69,11 @@
         <button type="submit">Buscar</button>
     </form>
 
+    <style>
+        #auto-submit-form{
+            display: none;
+        }
+    </style>
 <!-- Script para enviar el formulario automáticamente al cargar la página -->
 <script>
         // Espera a que el contenido de la página esté completamente cargado
@@ -93,7 +98,7 @@
                 @else
                     <p>No hay portada disponible.</p>
                 @endif
-                <h2>
+                <h2 class="auto-submit-form" >
                     <a href="{{ route('manga.detalle', $manga->id) }}">
                         {{ $manga->attributes->title->en ?? 'Título no disponible' }}
                     </a>
@@ -101,7 +106,7 @@
             </div>
             @endforeach
         @else
-            <p>No se encontraron mangas.</p>
+            <p class="auto-submit-form" >No se encontraron mangas.</p>
         @endif
     </div>
 

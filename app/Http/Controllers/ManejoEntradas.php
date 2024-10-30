@@ -116,7 +116,7 @@ public function mostrarSesionIniciada()
                 break;
 
             case '4':
-                $genreName = 'novela grafica';
+                $genreName = 'graphic novel';
                 break;
 
             case '5':
@@ -128,7 +128,7 @@ public function mostrarSesionIniciada()
                 break;
                 
             case '7':
-                $genreName = 'spokon';
+                $genreName = 'sport';
                 break;
                 
             case '8':

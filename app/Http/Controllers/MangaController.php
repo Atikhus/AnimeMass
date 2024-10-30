@@ -187,7 +187,7 @@ public function listaFavoritos(){
 
     $userId = Auth::id(); // Obtener el ID del usuario autenticado
     $userLinks = UserLink::where('user_id', $userId)->get();
-    
+    //dd($userLinks);
     
     return response()->json($userLinks); // Retorna los links como JSON
     
