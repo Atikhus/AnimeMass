@@ -40,7 +40,8 @@
 
 <div class="container">
     <h1>Bienvenido a AnimeMas</h1>
-    <p>¡Has iniciado sesión correctamente! Este es el contenido que tenemos para ofrecerte:</p>
+    <p>¡Tu aventura comienza aquí! Detrás de cada página hay un nuevo mundo por descubrir. ¿Estás listo para desvelar los secretos de tus mangas favoritos?</p>
+    <p>es una sorpresa dejate sorprender!</p>
 
     <!-- Mensajes de error -->
     @if ($errors->any())
@@ -67,7 +68,7 @@
                 <div class="manga-item">
                     <h2>
                         <a href="{{ route('manga.detalle', $manga['id']) }}">
-                            {{ $manga['attributes']['title']['en'] ?? 'Título no disponible' }}
+                        {{ $manga['attributes']['title']['en'] ?? 'Título no disponible' }}
                         </a>
                     </h2>
                     <!-- Mostrar la imagen de portada del manga -->

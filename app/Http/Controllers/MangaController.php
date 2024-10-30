@@ -28,7 +28,6 @@ class MangaController extends Controller
 
     //este metodo enviara contenido por default al fronend
     public function enviarManga(){
-        
         try {
             // Usamos el servicio para obtener los mangas default
             $mangas = $this->mangaReaderService->getAllMangas();
@@ -93,7 +92,7 @@ class MangaController extends Controller
         try {
            // Usamos el servicio para obtener los detalles del manga por su ID
             $mangaDetalle = $this->mangaReaderService->obtenerDetallesMangaPorId($id);
-            
+            //dd($mangaDetalle);
              // Almacenar los detalles en la sesión
             session(['manga' => $mangaDetalle->data]);
             // Verifica la estructura de datos
@@ -146,7 +145,7 @@ class MangaController extends Controller
 
     
     
-
+//sin uso ahun
 public function leerCapitulo($id)
 {
     $mangaService = new MangaReaderService();

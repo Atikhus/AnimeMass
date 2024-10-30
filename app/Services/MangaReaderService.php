@@ -36,6 +36,8 @@ class MangaReaderService
             'order[createdAt]' => 'desc'
         ]
     ]);
+    //dd($response);
+
 
     $mangasData = json_decode($response->getBody()->getContents(), true);
 
@@ -142,6 +144,7 @@ public function buscarTituloMangaDex($titulo) {
     return null; // O maneja el error
 }
 
+//sin uso ahun
 public function obtenerCapitulosMangaDex($mangaId) {
     $response = Http::get("https://api.mangadex.org/chapter", [
         'manga' => $mangaId,
