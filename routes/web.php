@@ -95,9 +95,12 @@ Route::get('/vista_content', [MangaController::class, 'mostrarMangas'])->name('m
 use App\Http\Controllers\ProfileController;
 
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+Route::get('/a', function () {
+    return view('welcome');
+});
+//ruta artificial para dash de laravel
+//Route::get('/dashboard', [ManejoEntradas::class, 'mostrarWelcome'])->name('welcome');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -23,7 +23,7 @@
     
     
     <div class="box-x">
-    <a href="dashboard">actualiza tus datos</a>
+    <a href="profile">actualiza tus datos</a>
     </div>
 </div>
 </div>

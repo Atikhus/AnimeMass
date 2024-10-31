@@ -1,0 +1,149 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a202c;
+    color: #cbd5e0;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos de la barra de navegación */
+nav {
+    background-color: #2d3748;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    padding: 0.5rem 2rem;
+    width: 100%;
+}
+
+nav .max-w-7xl {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo y Links de Navegación */
+nav .flex .space-x-8 {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+nav a {
+    color: #a0aec0;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #edf2f7;
+}
+
+/* Dropdown de Configuración */
+.sm\\:flex.sm\\:items-center {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.inline-flex {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    color: #cbd5e0;
+    border-radius: 0.375rem;
+    background-color: #4a5568;
+    transition: background-color 0.3s ease;
+}
+
+.inline-flex:hover {
+    background-color: #2c5282;
+}
+
+/* Estilos del menú desplegable */
+.dropdown-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #cbd5e0;
+    text-decoration: none;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.dropdown-link:hover {
+    color: #1a202c;
+    background-color: #e2e8f0;
+}
+
+.ms-1 svg {
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+button:hover svg {
+    transform: rotate(180deg);
+}
+
+/* Botón de hamburguesa para móvil */
+.me-2 {
+    margin-right: 0.5rem;
+}
+
+.hamburger-button {
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    background-color: #4a5568;
+    transition: background-color 0.3s ease;
+}
+
+.hamburger-button:hover {
+    background-color: #2d3748;
+}
+
+.hamburger-button svg {
+    color: #cbd5e0;
+    transition: color 0.3s ease;
+}
+
+.hamburger-button:hover svg {
+    color: #edf2f7;
+}
+
+/* Menú de Navegación Responsivo */
+@media (max-width: 640px) {
+    .responsive-nav-link {
+        display: block;
+        padding: 0.75rem;
+        color: #a0aec0;
+        text-decoration: none;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .responsive-nav-link:hover {
+        color: #1a202c;
+        background-color: #cbd5e0;
+    }
+
+    .responsive-nav-settings {
+        padding: 1rem;
+        border-top: 1px solid #4a5568;
+        background-color: #2d3748;
+    }
+
+    .responsive-nav-settings .font-medium {
+        color: #cbd5e0;
+    }
+}
+
+/* Hover en el menú horizontal */
+nav .space-x-8 a {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+nav .space-x-8 a:hover {
+    background-color: #4a5568;
+}

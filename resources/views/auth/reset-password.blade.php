@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>confirmar contraseña</title>
+    <link rel="icon" href="Assets/4043233-anime-away-face-no-nobody-spirited_113254.ico">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
 <x-guest-layout>
     <form method="POST" action="{{ route('password.store') }}">
         @csrf
@@ -37,3 +48,6 @@
         </div>
     </form>
 </x-guest-layout>
+
+</body>
+</html>

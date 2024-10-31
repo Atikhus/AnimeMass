@@ -27,7 +27,7 @@ class CommentComponent extends Component
 
         Comment::create([
             'manga_id' => $this->mangaId,
-            'user_id' => Auth::id(), // Asegúrate de capturar el ID del usuario autenticado
+            'user_id' => Auth::id(), 
             'comment' => $this->newComment, // Asegúrate de que el campo se llame 'comment'
         ]);
 

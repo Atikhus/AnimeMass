@@ -41,7 +41,7 @@
                 <h2>Perfil de Usuario</h2>
                 
                 <button class="exit-buton" >
-                    <li><a href="{{ route('logout') }}">desconectarse</a></li>
+                    <li><a href="{{ route('logout') }}">cerrar sesion</a></li>
                 </button>
                 
                 <div class="perfil-container">

@@ -10,7 +10,6 @@
 </head>
 <body>
     <header class="header-container"></header>
-
     <section class="section-list">
         <div class="list-container">
             <h1><img src="Assets/add_mark_like_save_label_book_bookmark_icon_219290.ico" alt="">Mi lista</h1>
