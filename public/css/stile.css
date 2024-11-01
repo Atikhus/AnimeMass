@@ -7,7 +7,7 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4; /* Color de fondo gris claro */
+    background-color: #2d3748; /* Color de fondo gris claro */
     color: #333; /* Color del texto */
 }
 
@@ -78,6 +78,7 @@ button {
     border: 1px solid #333; /* Borde de cada div */
     padding: 10px;
     margin-bottom: 10px; /* Espacio entre los divs */
+    
     background-color: #ffffff; /* Fondo blanco */
     text-align: center; /* Centra el contenido dentro de cada div */
     width: 100%; /* Cada div ocupa todo el ancho de la caja */
@@ -94,15 +95,6 @@ button {
     display: block;
     margin: 0 auto 10px; /* Centrar la imagen dentro del div */
 }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -197,7 +189,8 @@ h2 {
 }
 
 .perfil-container {
-    background-color: #f4f4f4; /* Fondo gris claro para el contenedor de perfil */
+    background-color: #dfe3ea;
+    
     padding: 10px;
     border-radius: 8px;
 }

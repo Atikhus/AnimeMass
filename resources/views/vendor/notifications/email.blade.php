@@ -1,3 +1,4 @@
+<!--this type shit send to the users the format of @gmail -->
 <x-mail::message>
     {{-- Logo --}}
 <table class="header" width="100%" cellpadding="0" cellspacing="0">

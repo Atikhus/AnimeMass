@@ -11,7 +11,7 @@
     <header>
         <div class="header-content">
             <img src="Assets/logo.png" alt="Logo de Manga Mas" class="logo">
-            <h1>MangaMas</h1>
+            <h1>AnimeMas</h1>
             <a href="{{ route('index') }}"><img src="{{ asset('Assets/dandy.ico') }}" alt=""></a>
         </div>
     </header>
