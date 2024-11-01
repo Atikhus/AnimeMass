@@ -227,10 +227,11 @@
 
     <footer class="footer">
         <div class="social-icons">
+            <a href="https://mail.google.com/mail/u/0/#search/animemas337%40gmail.com"><img src="Assets/social_media_gmail_logo_icon_141113.ico" alt=""></a>
             <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
             <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
             <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://x.com/animemas337" target="_blank"><i class="fab fa-twitter"></i></a>
         </div>
         <p>&copy; 2024 AnimeMas. Todos los derechos reservados.</p>
         

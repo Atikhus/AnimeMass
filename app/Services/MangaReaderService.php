@@ -159,8 +159,6 @@ public function obtenerCapitulosMangaDex($mangaId) {
 
 
 
-
-
 public function obtenerDetallesMangaPorId($id)
 {
     try {
