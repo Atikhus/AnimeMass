@@ -13,6 +13,7 @@
 
     <form wire:submit.prevent="submitComment">
         <textarea wire:model="newComment" placeholder="Escribe tu comentario..."></textarea>
+        <button id="emoji-button">😊</button>
         <button type="submit">Comentar</button>
     </form>
 </div>

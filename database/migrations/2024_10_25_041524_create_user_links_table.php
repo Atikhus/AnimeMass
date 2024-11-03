@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('user_links', function (Blueprint $table) {
             $table->id(); // ID auto incremental
             $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Relación con la tabla de usuarios
-            $table->string('url'); // URL a almacenar
+            $table->string('url')->unique(); // URL a almacenar
             $table->string('title');
             $table->timestamps(); // Created_at y updated_at
         });
