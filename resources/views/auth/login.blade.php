@@ -10,6 +10,7 @@
 <body>
     <main class="container">
         <div class="container-poster">
+        <img src="Assets/4043233-anime-away-face-no-nobody-spirited_113254.ico" alt="">
             <h1>¡Bienvenido!</h1>
             <p>Únete a nosotros</p>
         </div>

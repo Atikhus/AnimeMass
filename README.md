@@ -1,3 +1,28 @@
+## como instalar y ejecutar AniemMas correctamente
+
+despues de montar el projecto, migra todas las migraciones
+una ves migradas en caso de que no se migre alguna o genere error 500 o algo relacionado a la base de datos
+
+migrar para tabla en especifico:  php artisan migrate --path=/database/migrations/2024exampletable.php
+
+luego hay que tener instalado node.js y despues de que este instalado en el pc
+ejecutar en la consola:
+
+luego ejecutar las dependencias o librerias que traiga el repositorio con:
+npm install
+npm run build
+
+y levantar servidor 
+
+
+
+
+
+
+
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
@@ -64,3 +89,5 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+

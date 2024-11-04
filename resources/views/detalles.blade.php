@@ -101,9 +101,11 @@
         </script>
 
         <!-- Aquí es donde integrarás el componente de Livewire  para mostrar los comentarios-->
+        
         @livewire('comment-component', ['mangaId' => $manga->id])
     </div>
     @livewireScripts
     <script src="{{ asset('js/detalles.js') }}"></script>
+
 </body>
 </html>

@@ -59,6 +59,8 @@ public function mostrarSesionIniciada()
         ]);
     }
 
+
+    //save here
     public function sign(Request $request)
     {
         // Validar los datos
@@ -145,7 +147,7 @@ public function mostrarSesionIniciada()
             break;
 
             default:
-                // Caso para géneros no especificados
+                
                 $genreName = "Género no encontrado"; 
                 break;
         }
