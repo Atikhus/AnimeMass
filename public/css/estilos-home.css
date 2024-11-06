@@ -46,6 +46,12 @@ header::before{
     z-index: 1;
 }
 
+a{
+    color: #008c9e;
+    text-decoration: none;
+    font-weight: bold;
+}
+
 /*BARRA DE NAVEGACION*/
 
 /* barra de navegacion */

@@ -108,6 +108,7 @@
                 <img src="Assets/descubre5.webp" alt="Campfire Cooking in Another World with My Absurd Skills">
                 <h2>The New Gate</h2>
                 <p>Sub | Dob</p>
+                
             </div>
         </div>
     </section>

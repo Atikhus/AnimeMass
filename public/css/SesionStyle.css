@@ -11,19 +11,24 @@
 body {
     background: url(../Assets/animesher.com_stars-gif-aesthetic-anime-1916094.gif) no-repeat center center/cover;
     font-family: "Roboto", sans-serif;
-    background-size: cover; /* Asegura que la imagen se extienda completamente */
-    height: 100vh; /* Hace que el fondo cubra toda la altura de la pantalla */
+    background-size: cover;
+    height: 100vh;
     margin: 0;
 }
-.dasboar-color{
+
+.dasboar-color {
     color: white;
 }
 
+a {
+    color: rgb(89, 4, 159);
+    text-decoration: none;
+    font-weight: bold;
+}
 
-
-/* Estilo general para el contenedor */
+/* Barra de navegación */
 .contenedor-nav {
-    width: 100%;  
+    width: 100%;
     position: fixed;
     top: 0;
     display: flex;
@@ -31,31 +36,31 @@ body {
     z-index: 1000;
     justify-content: space-around;
     align-items: center;
-
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.756); /* Añade sombra para distinguir el nav */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.756);
 }
-.user-name{
+
+.user-name {
     color: white;
 }
-.contenedor-nav ul{
+
+.contenedor-nav ul {
     display: flex;
     list-style: none;
     gap: 20px;
 }
-.Bienvenido{
+
+.Bienvenido {
     padding: 20px;
-        font-size: 1.5rem;
-        color: aqua;
-    
+    font-size: 1.5rem;
+    color: aqua;
 }
 
-
-/* Aplica un margen superior para evitar que el contenido se superponga con el nav */
+/* Contenedor principal */
 .container {
     max-width: 1400px;
     margin: 0 auto;
     padding: 50px;
-    margin-top: 80px; /* Ajusta este valor según la altura de tu nav */
+    margin-top: 80px;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(10px);
@@ -63,8 +68,6 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.693);
 }
 
-
-/* Estilo para los encabezados */
 h1 {
     color: #333;
     margin-bottom: 10px;
@@ -75,7 +78,7 @@ h2 {
     margin-top: 10px;
 }
 
-/* Estilo para el formulario de búsqueda */
+/* Formulario de búsqueda */
 form {
     margin-bottom: 20px;
 }
@@ -101,35 +104,96 @@ button:hover {
     background-color: #0056b3;
 }
 
-/* Estilo para la cuadrícula de mangas */
+/* Cuadrícula de mangas */
 .manga-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 columnas */
-    gap: 20px; /* Espacio entre las imágenes */
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
     justify-items: center;
     margin-top: 20px;
 }
 
 .manga-item {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    max-width: 250px;
     text-align: center;
 }
 
 .manga-cover {
-    width: 250px;
+    width: 100%;
     height: auto;
-    gap: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease-in-out;
 }
 
-h2 {
-    margin-top: 10px;
-    font-size: 1.2rem;
+.manga-item h2 a {
     color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
 }
 
-/* Estilo para los mensajes de error */
+.manga-cover:hover {
+    transform: scale(1.05);
+}
+
+.manga-item h2 a:hover {
+    text-decoration: none;
+    color: #007bff;
+}
+
 .error {
     color: red;
     margin-top: 10px;
+}
+
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 768px) {
+    /* Ajustes en la barra de navegación para móviles */
+    .contenedor-nav {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .contenedor-nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .Bienvenido {
+        font-size: 1.2rem;
+    }
+
+    /* Ajuste de la cuadrícula de mangas en tablets */
+    .manga-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Ajustes en la cuadrícula de mangas para smartphones */
+    .manga-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    /* Ajustes en el formulario de búsqueda para que ocupe todo el ancho */
+    input[type="text"] {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .Bienvenido {
+        font-size: 1rem;
+    }
 }

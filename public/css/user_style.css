@@ -20,6 +20,18 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     height: 100vh;
 }
+a{
+    align-items: center;
+    color: #4a14ee;
+    text-decoration: none;
+    font-weight: bold;
+}
+a:hover{
+    color: #00DDFF;
+}
+.manga-item:hover{
+    transform: scale(1.05); /* Pequeño zoom cuando pasas el mouse */
+}
 
 img{
     height: 48px;

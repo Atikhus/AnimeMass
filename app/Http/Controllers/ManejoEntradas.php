@@ -18,7 +18,7 @@ class ManejoEntradas extends Controller
 
     public function showSignForm()
     {
-        return view('sign'); // Asegúrate de que 'sign' sea el nombre correcto de tu vista
+        return view('sign'); 
     }
 
     public function showForm()
@@ -26,16 +26,16 @@ class ManejoEntradas extends Controller
         return view('control_panel');
     }
 
-public function showIndex()
-{
-    return view('index');
-}
+    public function showIndex()
+    {
+        return view('index');
+    }
 
-    
-public function mostrarSesionIniciada()
-{
-    return view('sesion_iniciada'); // Asegúrate de que el nombre de la vista sea correcto
-}
+
+    public function mostrarSesionIniciada()
+    {
+        return view('sesion_iniciada');
+    }
 
 
     public function login(Request $request)
@@ -61,8 +61,8 @@ public function mostrarSesionIniciada()
 
 
     //save here
-    public function sign(Request $request)
-    {
+    public function sign(Request $request){
+    
         // Validar los datos
         $request->validate([
             'name' => 'required|string|max:255',
@@ -79,26 +79,36 @@ public function mostrarSesionIniciada()
             'password' => Hash::make($request->password),
         ]);
 
+         // Intentar autenticar al usuario
+        if (Auth::attempt($request->only('email', 'password'))) {
+            // Redirigir a la vista de sesión iniciada
+            //return redirect('sesion_iniciada');
+            return redirect()->route('index');
+        }
+        
         // Redirigir después del registro
-        return redirect('/'); // Cambia esto si tienes una página específica después del registro
+        //return redirect('index'); 
     }
 
-    public function showProfile(){
+    public function showProfile()
+    {
         $user = Auth::user();
         return view('user.usuario', compact('user'))->render(); // Esto retornará el HTML de la vista
     }
-    
+
     public function logout()
     {
         Auth::logout();
         return redirect('/');
     }
 
-    public function showFavoriteList(){
+    public function showFavoriteList()
+    {
         return view('user.lista_favoritos');
     }
 
-    public function showCategories(Request $request){
+    public function showCategories(Request $request)
+    {
         $genreNun = $request->input('genre');
         $genreName = '';
         switch ($genreNun) {
@@ -128,32 +138,33 @@ public function mostrarSesionIniciada()
             case '6':
                 $genreName = 'ecchi';
                 break;
-                
+
             case '7':
                 $genreName = 'sport';
                 break;
-                
+
             case '8':
                 $genreName = 'comics';
 
                 break;
-        
+
             case '9':
                 $genreName = 'yuri';
                 break;
 
             case '10':
                 $genreName = 'romcom';
-            break;
+                break;
 
             default:
-                
-                $genreName = "Género no encontrado"; 
+
+                $genreName = "Género no encontrado";
                 break;
         }
 
         //dd($genreName);
-        return view('categories',compact('genreName'));
+        return view('categories', compact('genreName'));
     }
 
+    //end of the class
 }

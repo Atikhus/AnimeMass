@@ -1,17 +1,19 @@
+/* Estilos generales */
 :root{
-    --color-fondo: linear-gradient(to right,rgba(5, 72, 130, 0.708),rgb(5, 3, 48));
-    --color-texto-poster:rgb(0, 0, 0);
-    --color-texto-formulario:rgb(59, 59, 59);
-    --color-btn: linear-gradient(to right,rgba(2, 53, 95, 0.842),rgba(0, 0, 0));
-    --color-login-text:white;
-
+    --color-fondo: linear-gradient(to right, rgba(5, 72, 130, 0.708), rgb(5, 3, 48));
+    --color-texto-poster: rgb(0, 0, 0);
+    --color-texto-formulario: rgb(59, 59, 59);
+    --color-btn: linear-gradient(to right, rgba(2, 53, 95, 0.842), rgba(0, 0, 0));
+    --color-login-text: white;
 }
-*{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body{
+
+body {
     height: 100vh;
     background-image: url(../Assets/galaxy.gif);
     background-repeat: no-repeat;
@@ -21,10 +23,12 @@ body{
     align-items: center;
     justify-content: center;
 }
-h1,h2,p{
+
+h1, h2, p {
     color: var(--color-login-text);
 }
-.container{
+
+.container {
     background-color: var(--color-fondo);
     display: flex;
     width: 70%;
@@ -38,78 +42,54 @@ h1,h2,p{
     background-color: rgba(255, 255, 255, 0.3); /* Fondo translúcido */
     backdrop-filter: blur(10px); /* Desenfoque del fondo */
     -webkit-backdrop-filter: blur(10px); /* Para compatibilidad con Safari */
-    
-    
 }
 
-.container-poster{
+/* Ocultar el contenedor del póster */
+.container-poster {
+    display: none;
+}
+
+/* Estilos para el formulario */
+.container-formulario {
+    width: 100%; /* Haz que ocupe todo el ancho */
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    width: 50%;
-    height: 100%;
-    padding: 10px;
-    margin: 0;
-    border-radius: 10px;
-    color: var(--color-texto-poster);
-    background: url(../Assets/fondoposter.jpg) no-repeat center center/cover;
+    text-align: center;
 }
 
-.container-poster h1{
-    font-size: 40px;
-    font-weight: bolder;
-}
-
-.container-poster p{
-    font-size: 40px;
-    font-weight: bolder;
-}
-.container-formulario{
-    width: 50%;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.container-formulario form{
-    width: 90%;
-
-}
-.container-formulario h2{
+.container-formulario h2 {
     margin-bottom: 20px;
     font-weight: bolder;
 }
-.container-formulario input{
+
+.container-formulario form {
+    width: 100%;
+}
+
+.container-formulario input {
     display: block;
     border-radius: 4px;
     width: 90%;
     margin: 10px auto;
     padding: 10px;
     border: 1px solid var(--color-texto-formulario);
-
 }
-.container-formulario .btn{
-    background-color:rgba(35, 33, 33, 0.598);
+
+.container-formulario .btn {
+    background-color: rgba(35, 33, 33, 0.598);
     color: var(--color-texto-poster);
     transition: 0.3s ease;
 }
 
-.container-formulario .btn:hover{
-    background-color:var(--color-btn);
+.container-formulario .btn:hover {
+    background-color: var(--color-btn);
     color: var(--color-texto-poster);
 }
 
-@media(max-width:767px){
-    .container-posterñ{
-        display: none;
+/* Responsivo */
+@media (max-width: 767px) {
+    .container {
+        width: 90%; /* Para dispositivos móviles, haz que ocupe la mayor parte del ancho */
     }
-    .container-formulario{
-        width: 100%;
-    }
-    .container-poster{
-        max-width:500% ;
-    }
-
 }
