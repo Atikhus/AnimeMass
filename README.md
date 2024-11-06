@@ -2,17 +2,29 @@
 
 despues de montar el projecto, migra todas las migraciones
 una ves migradas en caso de que no se migre alguna o genere error 500 o algo relacionado a la base de datos
-
 migrar para tabla en especifico:  php artisan migrate --path=/database/migrations/2024exampletable.php
 
-luego hay que tener instalado node.js y despues de que este instalado en el pc
+luego hay que tener instalado node.js en el pc y 
 ejecutar en la consola:
 
-luego ejecutar las dependencias o librerias que traiga el repositorio con:
 npm install
 npm run build
 
+esto es para ejecutar las dependencias o librerias que traiga el repositorio  
 y levantar servidor 
+
+
+<p align="center"><a href="https://mail.google.com/mail/u/0/#search/animemas337%40gmail.com" target="_blank"><img src="https://i.pinimg.com/736x/d9/9c/cd/d99ccd0b95bce50e103f3b77a2d37829.jpg" width="400" alt="animeMas"></a></p>
+
+
+
+## que es AnimeMas?
+
+Animemas es una pagina we en donde podras disfrutar del mundo del manga,comics y novelas graficas
+
+
+## se utilizaron tecnologias como livewire y la libreria de php, node.js
+
 
 
 
