@@ -133,6 +133,12 @@ h1 {
     overflow-y: auto; /* Permitir desplazamiento si el contenido es grande */
 }
 
+a{
+    color: rgb(89, 4, 159);
+    text-decoration: none;
+    font-weight: bold;
+}
+
 .sidebar ul {
     list-style-type: none;
 }
@@ -160,6 +166,7 @@ h1 {
     padding: 1rem;
     margin-left: 200px; /* Espacio a la izquierda para el sidebar */
 }
+
 
 .dashboard-item {
     background-color: rgb(255, 255, 255); /* Fondo blanco */

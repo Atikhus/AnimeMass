@@ -10,14 +10,17 @@
 <body>
     <main class="container">
         <div class="conainer-poster" >
-        <img src="Assets/4043233-anime-away-face-no-nobody-spirited_113254.ico" alt="">
-
-            <h1>bienvenido!</h1>
-            <p>unete a  nosotros</p>
+            
+            <p id="hiden" ></p>
+            
         </div>
-
+        
         <!--formulario -->
         <div class="container-formulario">
+            
+            <h1 id="hiden" >bienvenido</h1>
+            <p>unete a  nosotros</p>
+            <img src="Assets/4043233-anime-away-face-no-nobody-spirited_113254.ico" alt="">
             <h2>login</h2>
             <form method="POST" action="{{ route('login.process') }}">
     @csrf <!-- Protección CSRF -->
