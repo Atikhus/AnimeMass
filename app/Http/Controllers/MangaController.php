@@ -26,7 +26,7 @@ class MangaController extends Controller
         return view('vista_content', compact('mangas'));
     }
 
-    //este metodo enviara contenido por default al fronend
+    //este metodo enviara contenido por default al fronend las famosas sorpesas xd
     public function enviarManga()
     {
         try {
