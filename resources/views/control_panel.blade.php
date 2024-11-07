@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Assets/logo.png" type="Assets/jpg">
     <title>Panel de Control de Manga</title>
     <link rel="stylesheet" href="css/stile.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
@@ -18,13 +19,15 @@
     <div class="container">
         <nav class="sidebar">
             <ul>
-                <li><a href="#" data-section="manga-stats">Estadísticas de Manga</a></li>
+                <li><a href="admin">modo administrador</a></li>
                 <li><a href="#" data-section="mangaka-stats">Estadísticas de Mangakas</a></li>
                 <li><a href="#" data-section="reader-stats">Perfil de Usuario</a></li>
                 <li><a href="index">Ir Atrás</a></li>
             </ul>
         </nav>
         <main class="dashboard">
+            
+            <a href="admin"><h1>here admin mode</h1></a>
             <section class="dashboard-item" id="manga-stats">
                 <h2>Manga Popular</h2>
                 <div class="chart-container">

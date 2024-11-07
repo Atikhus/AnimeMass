@@ -47,7 +47,7 @@
 
 
             <!--seccion espcial para enviar los datos de la url de esta pagina con su id para la base de datos -->
-            
+
             <button id="saveMangaButton"
                 data-manga-id="{{ $manga->id }}"
                 data-manga-title="{{ $manga->attributes->title->en }}">
@@ -55,7 +55,7 @@
                 Agregar a lista de favoritos
             </button>
 
-
+            
 
 
             <script>
