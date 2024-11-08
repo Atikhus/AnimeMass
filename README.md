@@ -14,7 +14,7 @@ esto es para ejecutar las dependencias o librerias que traiga el repositorio
 y levantar servidor 
 
 
-<p align="center"><a href="https://mail.google.com/mail/u/0/#search/animemas337%40gmail.com" target="_blank"><img src="https://i.pinimg.com/736x/d9/9c/cd/d99ccd0b95bce50e103f3b77a2d37829.jpg" width="400" alt="animeMas"></a></p>
+<p align="center"><a href="https://mail.google.com/mail/u/0/#search/animemas337%40gmail.com" target="_blank"><img src="https://image.pngaaa.com/210/845210-middle.png" width="400" alt="animeMas"></a></p>
 
 
 
