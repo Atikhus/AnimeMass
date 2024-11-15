@@ -27,7 +27,6 @@
         </nav>
         <main class="dashboard">
             
-            <a href="admin"><h1>here admin mode</h1></a>
             <section class="dashboard-item" id="manga-stats">
                 <h2>Manga Popular</h2>
                 <div class="chart-container">
