@@ -13,6 +13,8 @@ npm run build
 esto es para ejecutar las dependencias o librerias que traiga el repositorio  
 y levantar servidor 
 
+recuerda que utilizamos open admin como sistema de moderacion y roles
+
 
 <p align="center"><a href="https://mail.google.com/mail/u/0/#search/animemas337%40gmail.com" target="_blank"><img src="https://image.pngaaa.com/210/845210-middle.png" width="400" alt="animeMas"></a></p>
 
